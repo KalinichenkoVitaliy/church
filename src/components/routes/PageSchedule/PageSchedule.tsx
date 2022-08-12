@@ -46,8 +46,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Последнее воскресенье месяца</strong> &ndash; Благодарственный молебен Господу (в случае отсутствия в
-        течении седмицы праздничных богослужений)
+        <strong>Последнее воскресенье месяца</strong> &ndash; Благодарственный молебен Господу
       </Text>
       <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />
       <Text
@@ -103,7 +102,8 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Пятница: 16:00</strong> &ndash; Вечернее богослужение
+        <strong>Пятница: 16:00</strong> &ndash; Вечернее богослужение (в случае отсутствия в течении седмицы праздничных
+        богослужений)
       </Text>
       <Text
         As='p'
@@ -112,7 +112,8 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Суббота: 8:00</strong> &ndash; Утреннее богослужение
+        <strong>Суббота: 8:00</strong> &ndash; Утреннее богослужение (в случае отсутствия в течении седмицы праздничных
+        богослужений)
       </Text>
       <Text
         As='p'

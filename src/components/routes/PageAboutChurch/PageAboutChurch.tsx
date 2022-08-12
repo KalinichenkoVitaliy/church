@@ -2,6 +2,9 @@ import React from 'react';
 
 import styles from './pageAboutChurch.module.scss';
 
+import { EAling, Text } from '../../../shared/Text';
+import { Break } from '../../../shared/Break';
+
 const documentTitleMain = getComputedStyle(document.documentElement).getPropertyValue('--documentTitleMain');
 
 export function PageAboutChurch() {
@@ -10,5 +13,180 @@ export function PageAboutChurch() {
     document.title = newTitle;
   }, []);
 
-  return <div className={styles.pageAboutChurch}>PageAboutChurch</div>;
+  return (
+    <div className={styles.pageAboutChurch}>
+      <Text
+        As='h2'
+        fontMobile={{ size: 16, lineHeight: '20px', weight: 500 }}
+        fontTablet={{ size: 20, lineHeight: '24px', weight: 500 }}
+        fontLaptop={{ size: 24, lineHeight: '28px', weight: 500 }}
+        fontDesktop={{ size: 26, lineHeight: '30px', weight: 500 }}
+        textAling={EAling.center}
+      >
+        О храме
+      </Text>
+      <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;На старинных картах местность, где находиться станица Фастовецкая называлось «Урочище
+        Курганов». По Указу Екатерины II от 30 июня 1792 года царское правительство приступило к заселению земель
+        добровольцами из Центральных губерний Российской империи.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;В 1829 году на территорию Урочища Курганов переселились крестьяне Воронежской губернии
+        Коротоякского уезда в количестве 116 душ. Позже они дали название местной степной речке «Тихая» и обозначили
+        свой населённый пункт как село Тихорецкое.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;Несмотря на тяжёлый быт первых переселенцев, их души стремились к общению с Богом. В селе
+        начался сбор денег на постройку церкви. Строительство церкви обошлось селянам в 20000 рублей серебром. В 1839
+        году деревянная Свято-Никольская церковь, построенная на самом высоком месте села, была открыта. По своей
+        архитектуре она напоминала современную Свято-Успенскую церковь города Тихорецка.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;В 1898 году была открыта вторая церковь Александра Невского, но главной и наиболее чтимой была
+        Свято-Никольская. Причт церкви состоял из двух священников – о.Николая Инжавенского и о.Алексия Лаванова, одного
+        диакона и двух псаломщиков. Станичники любили храм и жертвовали церковную утварь и иконы. Здесь хранились
+        дарственные знамёна российских императоров, вручённые за героические подвиги казаков. Церковь была центром
+        общественной, политической и идеологической жизни, вокруг неё формируется торговый и образовательный центры.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;После революции церковь стала считаться презренным объектом буржуазной культуры, той самой,
+        которая мешала строить «светлое будущее». Население перестало посещать храм, а вскоре его закрыли совсем из-за
+        отсутствия Прихода.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;По инициативе местных коммунистов в 1930 году село Тихорецкое переименовано в честь местного
+        революционера С.П. Фастовца.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;Между 1935 и 1939 годами здание двух станичных церквей сломали для нужд капитального
+        строительства в свиносовхозе «Большевик». Храмы разобрали так «успешно», что наше поколение не находило следов
+        их существования. Разгром довершило строительство футбольного поля в 50-х года ХХ века. Тогда в забытые склепы
+        умерших священников провалился трактор. Содержимое склепов было разграблено, парчевые ризы население применяло
+        как средство для оккультных обрядов, останки выбросили пионеры, а сами склепы сравняли с землёй.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;Несколько позже энтузиасты из числа местных жителей дважды пытались открыть приход и только в
+        90-е годы что-то стало «перестраиваться» в душах людей. Нашлись энтузиасты и в Фастовецкой: супруги Бутенко и
+        О.В. Вебер пришли на приём к главе местной администрации Арсентьеву В.Т. с предложением открыть церковный приход
+        и встретили горячую поддержку.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;Настоятель Свято-Успенского храма города Тихорецка протоиерей Пётр Дашевский благословил
+        благое начинание. По Указу Архиепископа Екатеринодарского и Новороссийского 7 ноября 1998 года был открыт приход
+        Свято-Никольской церкви станицы Фастовецкой, где с первых дней и поныне настоятелем является о. Валерий
+        Бочарников.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;Под церковь местная община казаков отдала часть своего здания и первое Богослужение состоялось
+        в Рождество Христово 1999 года. Так стала возрождаться духовная жизнь в станице Фастовецкой. Многие окрестились,
+        повенчались, в последний путь людей теперь «провожала» молитва священника, а не духовой оркестр. «Закипела»
+        жизнь на приходе. До закрытия телекомпании, на местном Фастовецком телевидении действовала православная передача
+        «Православный час», в которой священник отвечал на все интересующие вопросы, рассказывал о праздниках
+        Православной церкви, транслировались православные фильмы. Организуются ежегодные паломнические поездки по святым
+        местам.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;Побывав в Фастовецкой губернатор Краснодарского края А.Н. Ткачёв заметил, что в станице не
+        звонят церковные колокола. Александр Николаевич со своим отцом Николаем Ивановичем решили помочь в возведении
+        нового каменного храма. Видя такую поддержку в возведении храма, жители станицы, предприниматели и главы
+        крестьянско-фермерских хозяйств ускорили сбор денежных средств. 26 сентября 2004 года при большом стечении
+        народа в присутствии главы администрации МО Тихорецкий район П.Н. Максимовских, зам. главы О.Н. Жигулиной и
+        главы сельского поселения Арсентьева В.Т. отцом Валерием был отслужен молебен на воздвижение Храма и установлен
+        деревянный крест. 20 февраля 2005 года состоялась закладка камня в основание будущего Свято-Никольского храма. С
+        Божией помощью и молитвами храм был возведён.
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;В октябре 2007 года Митрополитом Екатеринодарским и Кубанским Исидором совершилось
+        торжественное освящение колоколов. В 2008 году Владыка Исидор освятил храм в честь Святителя Николая Чудотворца.
+        Так в станице появился главный праздник – престольный, который празднуется 19/6 декабря. Величественно и
+        торжественно возвышается наш храм в центре станицы, звонят колокола, призывая людей к молитве, ослепительно
+        сверкают в небе золотые купола.
+      </Text>
+    </div>
+  );
 }
