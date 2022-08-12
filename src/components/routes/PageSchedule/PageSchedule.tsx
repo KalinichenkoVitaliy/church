@@ -46,7 +46,8 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Последнее воскресенье месяца</strong> &ndash; Благодарственный молебен Господу
+        <strong>Последнее воскресенье месяца</strong> &ndash; Благодарственный молебен Господу (в случае отсутствия в
+        течении седмицы праздничных богослужений)
       </Text>
       <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />
       <Text
