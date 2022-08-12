@@ -1,0 +1,28 @@
+@import '../../assets/scss/media';
+
+.adminbar {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  font-size: 13px;
+  line-height: 1;
+  color: var(--greyCC);
+  background: var(--black23);
+}
+
+$query-breakpoints: (
+  'tall': 599px,
+  'grande': 900px,
+  'venti': 1400px,
+);
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .adminbar {
+    height: 46px;
+  }
+}

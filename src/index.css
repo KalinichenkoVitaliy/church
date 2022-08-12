@@ -1,13 +1,142 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-100-thin.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-100-thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-200-extralight.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-200-extralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-300-light.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-300-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-400-regular.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-400-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-500-medium.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-500-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-700-bold.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-700-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-800-extrabold.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-800-extrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica-900-heavy.woff2') format('woff2'),
+    url('./assets/fonts/helvetica-900-heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Цвета */
+  --black23: #23282d;
+  --white: #ffffff;
+  --green: #00ce03;
+  --greyED: #ededed;
+  --greyEE: #eeeeee;
+  --greyCC: #cccccc;
+  --grey9F: #9f9f9f;
+  --grey6A: #6a6a6a;
+  --grey63: #636363;
+  --grey44: #444444;
+  --grey32: #32373c;
+  --greyBlue: #21759b;
+  --golub70: #70c9d3;
+  --golub00: #00b9eb;
+
+  /* Геометрия вёрстки */
+  --breakpointMinWidthDesktop: 1540px;
+  --breakpointMaxWidthLaptop: 1539px;
+  --breakpointMinWidthLaptop: 960px;
+  --breakpointMaxWidthTablet: 959px;
+  --breakpointMinWidthTablet: 600px;
+  --breakpointMaxWidthMobile: 599px;
+
+  /* Заголовки страниц */
+  --documentTitle: Свято-Никольский храм станицы Фастовецкой;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--grey44);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  background-color: var(--golub70);
+  background-image: url('./assets/image/bg.png');
+  border-image-repeat: repeat;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media all and (max-width: 960px) {
+  body {
+    background-color: var(--white);
+    background-image: none;
+  }
 }

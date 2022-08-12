@@ -1,0 +1,15 @@
+@import '../../../assets/scss/mixins';
+
+.link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px;
+  color: var(--greyEE);
+  @include animeTransitionEasyInOut03(color background-color);
+
+  &:hover {
+    color: var(--golub00);
+    background-color: var(--grey32);
+  }
+}

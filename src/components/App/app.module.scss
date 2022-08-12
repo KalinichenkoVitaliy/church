@@ -1,0 +1,29 @@
+@import '../../assets/scss/media';
+
+@media all and (min-width: $appMinWidthDesktop) {
+  .app {
+    width: calc(100% - ($appPadRLDesktop + 10px) * 2);
+    margin: calc($appMarTBDesktop + $appMarTopDesktop) auto $appMarTBDesktop;
+  }
+}
+
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+  .app {
+    width: calc(100% - $appPadRLLaptop * 2);
+    margin: calc($appMarTBLaptop + $appMarTopLaptop) auto $appMarTBLaptop;
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .app {
+    width: 100%;
+    margin: calc($appMarTBTablet + $appMarTopTablet) auto $appMarTBTablet;
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .app {
+    width: 100%;
+    margin: calc($appMarTBMobile + $appMarTopMobile) auto $appMarTBMobile;
+  }
+}

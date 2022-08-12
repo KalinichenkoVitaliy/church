@@ -1,0 +1,29 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/media';
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px 40px;
+  width: 100%;
+  border-top: 1px solid var(--greyED);
+  border-bottom: 1px solid var(--greyED);
+  padding: 13px 0;
+}
+
+.animeLink {
+  color: var(--grey6A);
+  @include animeTransitionEasyInOut03(color);
+
+  &:hover {
+    color: var(--greyBlue);
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .navigation {
+    justify-content: center;
+    gap: 20px 20px;
+  }
+}

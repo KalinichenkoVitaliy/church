@@ -1,0 +1,36 @@
+import React from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
+import styles from './content.module.scss';
+
+import { ContentLeft } from '../ContentLeft';
+import { ContentRight } from '../ContentRight';
+import { PagePrimary } from '../routes/PagePrimary';
+import { PageAboutChurch } from '../routes/PageAboutChurch';
+import { PageClergy } from '../routes/PageClergy';
+import { PageSchedule } from '../routes/PageSchedule';
+import { PageContacts } from '../routes/PageContacts';
+import { PageNotFound } from '../routes/PageNotFound';
+
+export function Content() {
+  return (
+    <main className={styles.content}>
+      <section className={styles.left}>
+        <ContentLeft>
+          <Routes>
+            <Route path='/' element={<Navigate to={'/primary'} replace />} />
+            <Route path='/primary' element={<PagePrimary />} />
+            <Route path='/about-church' element={<PageAboutChurch />} />
+            <Route path='/clergy' element={<PageClergy />} />
+            <Route path='/schedule' element={<PageSchedule />} />
+            <Route path='/contacts' element={<PageContacts />} />
+            <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        </ContentLeft>
+      </section>
+      <aside className={styles.right}>
+        <ContentRight />
+      </aside>
+    </main>
+  );
+}

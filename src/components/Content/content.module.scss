@@ -1,0 +1,50 @@
+@import '../../assets/scss/media';
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
+  width: 100%;
+}
+
+.left {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px dotted lightgray;
+}
+
+.right {
+  grid-column-start: 9;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px dotted lightgray;
+}
+
+@media all and (min-width: $appMinWidthDesktop) {
+  .content {
+    gap: 80px;
+  }
+}
+
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+  .content {
+    gap: 60px;
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .content {
+    gap: 40px;
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,48 @@
+@import '../../assets/scss/media';
+
+.inline {
+  display: inline;
+}
+
+.step {
+  padding: 0 var(--step) 0 0;
+}
+.step.top {
+  padding: var(--step) 0 0;
+}
+
+@media all and (min-width: $appMinWidthDesktop) {
+  .stepDesktop {
+    padding: 0 var(--stepDesktop) 0 0;
+  }
+  .stepDesktop.top {
+    padding: var(--stepDesktop) 0 0;
+  }
+}
+
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+  .stepLaptop {
+    padding: 0 var(--stepLaptop) 0 0;
+  }
+  .stepLaptop.top {
+    padding: var(--stepLaptop) 0 0;
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .stepTablet {
+    padding: 0 var(--stepTablet) 0 0;
+  }
+  .stepTablet.top {
+    padding: var(--stepTablet) 0 0;
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .stepMobile {
+    padding: 0 var(--stepMobile) 0 0;
+  }
+  .stepMobile.top {
+    padding: var(--stepMobile) 0 0;
+  }
+}

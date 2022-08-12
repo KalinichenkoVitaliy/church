@@ -1,0 +1,10 @@
+@import '../../assets/scss/mixins';
+
+.linkTo {
+  outline-color: transparent;
+  @include animeTransitionEasyInOut03(outline-color);
+
+  &:focus {
+    outline-color: var(--greyBlue);
+  }
+}

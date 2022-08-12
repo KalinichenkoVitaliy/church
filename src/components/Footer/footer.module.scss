@@ -1,0 +1,28 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/media';
+
+.footer {
+  width: 100%;
+  border-top: 1px solid var(--greyED);
+  margin-top: 24px;
+  padding-top: 24px;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.link {
+  text-decoration: underline;
+  color: inherit;
+  @include animeTransitionEasyInOut03(color);
+
+  &:hover {
+    color: var(--greyBlue);
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .footer {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+}

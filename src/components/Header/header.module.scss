@@ -1,0 +1,24 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/media';
+
+.header {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.animeTitle {
+  color: var(--green);
+  @include animeTransitionEasyInOut03(color);
+
+  &:hover {
+    color: var(--greyBlue);
+    cursor: pointer;
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .header {
+    margin-bottom: 14px;
+    text-align: center;
+  }
+}

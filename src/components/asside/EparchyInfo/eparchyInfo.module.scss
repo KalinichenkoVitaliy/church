@@ -1,0 +1,17 @@
+@import '../../../assets/scss/mixins';
+
+.eparchyInfo {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--grey44);
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--grey9F);
+  @include animeTransitionEasyInOut03(color);
+
+  &:hover {
+    color: var(--greyBlue);
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../assets/scss/media';
+
+.container {
+  width: 100%;
+  background-color: var(--white);
+}
+
+@media all and (min-width: $appMinWidthDesktop) {
+  .container {
+    padding: $appPadTBDesktop $appPadRLDesktop;
+  }
+}
+
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+  .container {
+    padding: $appPadTBLaptop $appPadRLLaptop;
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .container {
+    padding: $appPadTBTablet $appPadRLTablet;
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .container {
+    padding: $appPadTBMobile $appPadRLMobile;
+  }
+}
