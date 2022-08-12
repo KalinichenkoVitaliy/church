@@ -59,7 +59,7 @@ export function PageSchedule() {
         Еженедельные регулярные богослужения:
       </Text>
       <Break stepMobile={2} stepTablet={4} stepLaptop={8} stepDesktop={10} top />
-      <Text
+      {/* <Text
         As='p'
         fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
         fontTablet={{ size: 15, lineHeight: '23px', weight: 400 }}
@@ -67,8 +67,8 @@ export function PageSchedule() {
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
         <strong>Понедельник</strong> - нет богослужений
-      </Text>
-      <Text
+      </Text> */}
+      {/* <Text
         As='p'
         fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
         fontTablet={{ size: 15, lineHeight: '23px', weight: 400 }}
@@ -76,8 +76,8 @@ export function PageSchedule() {
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
         <strong>Вторник</strong> - нет богослужений
-      </Text>
-      <Text
+      </Text> */}
+      {/* <Text
         As='p'
         fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
         fontTablet={{ size: 15, lineHeight: '23px', weight: 400 }}
@@ -85,7 +85,7 @@ export function PageSchedule() {
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
         <strong>Среда</strong> - нет богослужений
-      </Text>
+      </Text> */}
       <Text
         As='p'
         fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
@@ -120,7 +120,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        &emsp;&emsp;&emsp;&emsp;&emsp;<strong>9:00</strong> - Панихида по усопшим
+        &emsp;&emsp;&emsp;&emsp;&emsp;<strong>сразу после литургии или в 9:00</strong> - Панихида по усопшим
       </Text>
       <Text
         As='p'
