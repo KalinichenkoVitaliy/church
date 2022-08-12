@@ -46,7 +46,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Последнее воскресенье месяца</strong> - Благодарственный молебен Господу
+        <strong>Последнее воскресенье месяца</strong> &ndash; Благодарственный молебен Господу
       </Text>
       <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />
       <Text
@@ -66,7 +66,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Понедельник</strong> - нет богослужений
+        <strong>Понедельник</strong> &ndash; нет богослужений
       </Text> */}
       {/* <Text
         As='p'
@@ -75,7 +75,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Вторник</strong> - нет богослужений
+        <strong>Вторник</strong> &ndash; нет богослужений
       </Text> */}
       {/* <Text
         As='p'
@@ -84,7 +84,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Среда</strong> - нет богослужений
+        <strong>Среда</strong> &ndash; нет богослужений
       </Text> */}
       <Text
         As='p'
@@ -93,7 +93,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Четверг: 9:00</strong> - Молебен с акафистом святителю Николаю Чудотворцу
+        <strong>Четверг: 9:00</strong> &ndash; Молебен с акафистом святителю Николаю Чудотворцу
       </Text>
       <Text
         As='p'
@@ -102,7 +102,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Пятница: 16:00</strong> - Вечернее богослужение
+        <strong>Пятница: 16:00</strong> &ndash; Вечернее богослужение
       </Text>
       <Text
         As='p'
@@ -111,7 +111,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Суббота: 8:00</strong> - Утреннее богослужение
+        <strong>Суббота: 8:00</strong> &ndash; Утреннее богослужение
       </Text>
       <Text
         As='p'
@@ -120,7 +120,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        &emsp;&emsp;&emsp;&emsp;&emsp;<strong>сразу после литургии или в 9:00</strong> - Панихида по усопшим
+        &emsp;&emsp;&emsp;&emsp;&emsp;<strong>сразу после литургии или в 9:00</strong> &ndash; Панихида по усопшим
       </Text>
       <Text
         As='p'
@@ -129,7 +129,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        &emsp;&emsp;&emsp;&emsp;&emsp;<strong>16:00</strong> - Вечернее богослужение
+        &emsp;&emsp;&emsp;&emsp;&emsp;<strong>16:00</strong> &ndash; Вечернее богослужение
       </Text>
       <Text
         As='p'
@@ -138,7 +138,7 @@ export function PageSchedule() {
         fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
         fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
       >
-        <strong>Воскресенье: 8:00</strong> - Утреннее богослужение
+        <strong>Воскресенье: 8:00</strong> &ndash; Утреннее богослужение
       </Text>
       <Break stepMobile={2} stepTablet={4} stepLaptop={8} stepDesktop={10} top />
       <Text
