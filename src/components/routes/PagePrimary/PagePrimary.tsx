@@ -13,5 +13,5 @@ export function PagePrimary() {
     };
   }, []);
 
-  return <div className={styles.pagePrimary}>PagePrimary</div>;
+  return <div className={styles.pagePrimary}>PagePrimary Test</div>;
 }
