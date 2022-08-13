@@ -25,7 +25,7 @@ export function Header() {
       <Text As='h2' font={{ size: 13, lineHeight: '24px', weight: 400 }} color={EColor.green}>
         наш приходской сайт
       </Text>
-      <Break stepMobile={18} stepTablet={20} stepLaptop={22} stepDesktop={24} top />
+      <Break stepMobile={8} stepTablet={8} stepLaptop={12} stepDesktop={12} top />
       <Navigation />
     </header>
   );

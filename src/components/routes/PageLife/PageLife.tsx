@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './pageCntacts.module.scss';
+import styles from './pageLife.module.scss';
 
 import { EAling, Text } from '../../../shared/Text';
 import { Break } from '../../../shared/Break';
@@ -8,9 +8,9 @@ import { Break } from '../../../shared/Break';
 
 const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
-export function PageContacts() {
+export function PageLife() {
   React.useEffect(() => {
-    const newTitle = `Контакты | ${documentTitle}`;
+    const newTitle = `Приходская жизнь | ${documentTitle}`;
     document.title = newTitle;
     return () => {
       document.title = documentTitle;
@@ -18,7 +18,7 @@ export function PageContacts() {
   }, []);
 
   return (
-    <div className={styles.pageContacts}>
+    <div className={styles.pageLife}>
       <Text
         As='h2'
         fontMobile={{ size: 16, lineHeight: '20px', weight: 500 }}
@@ -27,7 +27,7 @@ export function PageContacts() {
         fontDesktop={{ size: 26, lineHeight: '30px', weight: 500 }}
         textAling={EAling.center}
       >
-        Контакты
+        Приходская жизнь
       </Text>
       <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />
     </div>

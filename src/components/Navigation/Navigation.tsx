@@ -56,13 +56,25 @@ export function Navigation() {
         Расписание богослужений
       </LinkTo>
       <LinkTo
+        goTo='/life'
+        fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
+        fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
+        fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
+        fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
+        upperCase
+        title='Подробнее о расписание богослужений'
+        topClass={styles.animeLink}
+      >
+        Приходская жизнь
+      </LinkTo>
+      <LinkTo
         goTo='/contacts'
         fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
         fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
         fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
-        title='Контакты и адреса'
+        title='Контакты, адреса и обратная связь'
         topClass={styles.animeLink}
       >
         Контакты

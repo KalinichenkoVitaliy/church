@@ -9,6 +9,7 @@ import { PagePrimary } from '../routes/PagePrimary';
 import { PageAboutChurch } from '../routes/PageAboutChurch';
 import { PageClergy } from '../routes/PageClergy';
 import { PageSchedule } from '../routes/PageSchedule';
+import { PageLife } from '../routes/PageLife';
 import { PageContacts } from '../routes/PageContacts';
 import { PageNotFound } from '../routes/PageNotFound';
 
@@ -23,6 +24,7 @@ export function Content() {
             <Route path='/about-church' element={<PageAboutChurch />} />
             <Route path='/clergy' element={<PageClergy />} />
             <Route path='/schedule' element={<PageSchedule />} />
+            <Route path='/life' element={<PageLife />} />
             <Route path='/contacts' element={<PageContacts />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
