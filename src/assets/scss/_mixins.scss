@@ -21,3 +21,9 @@
   transition-duration: 0.8s;
   transition-timing-function: ease;
 }
+
+@mixin animeTransitionLinear06($prop) {
+  transition-property: $prop;
+  transition-duration: 0.6s;
+  transition-timing-function: linear;
+}

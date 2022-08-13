@@ -261,6 +261,28 @@ export function PageAboutChurch() {
         fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
         textAling={EAling.justify}
       >
+        &emsp;&emsp;&emsp;В 2006 году были изготовлены и освящены купола для храма:
+      </Text>
+      <Picture
+        name='images/photos/aboutchurch/2006-08-01_osvyashenie-kupolov'
+        alt='Фото освящения куполов'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='0 0 8px 0'
+        marginTablet='0 0 8px 0'
+        marginLaptop='0 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
         &emsp;&emsp;&emsp;20 октября 2007 года Митрополитом Екатеринодарским и Кубанским Исидором совершилось
         торжественное освящение колоколов:
       </Text>
