@@ -6,11 +6,11 @@ import { EAling, Text } from '../../../shared/Text';
 import { Break } from '../../../shared/Break';
 import { Picture } from '../../../shared/Picture';
 
-const documentTitleMain = getComputedStyle(document.documentElement).getPropertyValue('--documentTitleMain');
+const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
 export function PageClergy() {
   React.useEffect(() => {
-    const newTitle = `Духовенство | ${documentTitleMain}`;
+    const newTitle = `Духовенство | ${documentTitle}`;
     document.title = newTitle;
   }, []);
 

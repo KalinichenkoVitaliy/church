@@ -6,11 +6,11 @@ import { EAling, Text } from '../../../shared/Text';
 import { Break } from '../../../shared/Break';
 import { Picture } from '../../../shared/Picture';
 
-const documentTitleMain = getComputedStyle(document.documentElement).getPropertyValue('--documentTitleMain');
+const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
 export function PageAboutChurch() {
   React.useEffect(() => {
-    const newTitle = `О храме | ${documentTitleMain}`;
+    const newTitle = `О храме | ${documentTitle}`;
     document.title = newTitle;
   }, []);
 
@@ -195,7 +195,7 @@ export function PageAboutChurch() {
       </Text>
       <Picture
         name='images/photos/aboutchurch/2005-02-20_zakladka-kamnya'
-        alt='Фото отца Александра'
+        alt='Фото газеты о закладке камня'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
         sizeLaptop={{ width: '100%', height: 'auto' }}
@@ -213,33 +213,153 @@ export function PageAboutChurch() {
         fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
         textAling={EAling.justify}
       >
-        &emsp;&emsp;&emsp;С Божией помощью и молитвами храм был возведён.
-      </Text>
-      <Text
-        As='p'
-        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
-        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
-        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
-        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
-        textAling={EAling.justify}
-      >
-        &emsp;&emsp;&emsp;В октябре 2007 года Митрополитом Екатеринодарским и Кубанским Исидором совершилось
-        торжественное освящение колоколов.
-      </Text>
-      <Text
-        As='p'
-        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
-        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
-        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
-        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
-        textAling={EAling.justify}
-      >
-        &emsp;&emsp;&emsp;В 2008 году Владыка Исидор освятил храм в честь Святителя Николая Чудотворца. Так в станице
-        появился главный праздник – престольный, который празднуется 19/6 декабря:
+        &emsp;&emsp;&emsp;С Божией помощью и молитвами началось строительство храма:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2008-03-03_osvyashenie-hrama'
-        alt='Фото отца Александра'
+        name='images/photos/aboutchurch/2006-07-01_building-1'
+        alt='Фото строительства храма №1'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='3px 0 8px 0'
+        marginTablet='3px 0 8px 0'
+        marginLaptop='3px 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Picture
+        name='images/photos/aboutchurch/2006-07-01_building-2'
+        alt='Фото строительства храма №2'
+        sizeMobile={{ width: '49%', height: 'auto' }}
+        sizeTablet={{ width: '49%', height: 'auto' }}
+        sizeLaptop={{ width: '49%', height: 'auto' }}
+        sizeDesktop={{ width: '49%', height: 'auto' }}
+        marginMobile='3px 0 8px 0'
+        marginTablet='3px 0 8px 0'
+        marginLaptop='3px 0 10px 0'
+        marginDesktop='0 0 10px 0'
+        aling='left'
+      />
+      <Picture
+        name='images/photos/aboutchurch/2006-07-01_building-3'
+        alt='Фото строительства храма №3'
+        sizeMobile={{ width: '49%', height: 'auto' }}
+        sizeTablet={{ width: '49%', height: 'auto' }}
+        sizeLaptop={{ width: '49%', height: 'auto' }}
+        sizeDesktop={{ width: '49%', height: 'auto' }}
+        marginMobile='3px 0 8px 0'
+        marginTablet='3px 0 8px 0'
+        marginLaptop='3px 0 10px 0'
+        marginDesktop='0 0 10px 0'
+        aling='right'
+      />
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;20 октября 2007 года Митрополитом Екатеринодарским и Кубанским Исидором совершилось
+        торжественное освящение колоколов:
+      </Text>
+      <Picture
+        name='images/photos/aboutchurch/2007-10-20_osvyashenie-kolokolov-1'
+        alt='Фото освящения колоколов'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='0 0 8px 0'
+        marginTablet='0 0 8px 0'
+        marginLaptop='0 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Picture
+        name='images/photos/aboutchurch/2007-10-20_osvyashenie-kolokolov-2'
+        alt='Фото главного колокола'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='0 0 8px 0'
+        marginTablet='0 0 8px 0'
+        marginLaptop='0 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;Строительство храма продолжалось:
+      </Text>
+      <Picture
+        name='images/photos/aboutchurch/2007-08-01_building-4'
+        alt='Фото строительства храма №4'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='3px 0 8px 0'
+        marginTablet='3px 0 8px 0'
+        marginLaptop='3px 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Picture
+        name='images/photos/aboutchurch/2007-08-01_building-5'
+        alt='Фото строительства храма №5'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='3px 0 8px 0'
+        marginTablet='3px 0 8px 0'
+        marginLaptop='3px 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+        textAling={EAling.justify}
+      >
+        &emsp;&emsp;&emsp;5 октября 2008 года Владыка Исидор освятил храм в честь Святителя Николая Чудотворца. Так в
+        станице появился главный праздник – престольный, который празднуется 19/6 декабря:
+      </Text>
+      <Picture
+        name='images/photos/aboutchurch/2008-10-05_osvyashenie-hrama-1'
+        alt='Фото газеты об освящении храма'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='0 0 8px 0'
+        marginTablet='0 0 8px 0'
+        marginLaptop='0 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Picture
+        name='images/photos/aboutchurch/2008-10-05_osvyashenie-hrama-2'
+        alt='Фото освящения храма №1'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='0 0 8px 0'
+        marginTablet='0 0 8px 0'
+        marginLaptop='0 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
+      <Picture
+        name='images/photos/aboutchurch/2008-10-05_osvyashenie-hrama-3'
+        alt='Фото освящения храма №2'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
         sizeLaptop={{ width: '100%', height: 'auto' }}
@@ -258,8 +378,20 @@ export function PageAboutChurch() {
         textAling={EAling.justify}
       >
         &emsp;&emsp;&emsp;Величественно и торжественно возвышается наш храм в центре станицы, звонят колокола, призывая
-        людей к молитве, ослепительно сверкают в небе золотые купола.
+        людей к молитве, ослепительно сверкают в небе золотые купола:
       </Text>
+      <Picture
+        name='images/photos/aboutchurch/2018-03-17_hram'
+        alt='Фото храма'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='3px 0 8px 0'
+        marginTablet='3px 0 8px 0'
+        marginLaptop='3px 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
     </div>
   );
 }
