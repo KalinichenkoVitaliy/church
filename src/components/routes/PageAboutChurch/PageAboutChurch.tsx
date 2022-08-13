@@ -4,6 +4,7 @@ import styles from './pageAboutChurch.module.scss';
 
 import { EAling, Text } from '../../../shared/Text';
 import { Break } from '../../../shared/Break';
+import { Picture } from '../../../shared/Picture';
 
 const documentTitleMain = getComputedStyle(document.documentElement).getPropertyValue('--documentTitleMain');
 
@@ -190,8 +191,20 @@ export function PageAboutChurch() {
         fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
         textAling={EAling.justify}
       >
-        &emsp;&emsp;&emsp;20 февраля 2005 года состоялась закладка камня в основание будущего Свято-Никольского храма.
+        &emsp;&emsp;&emsp;20 февраля 2005 года состоялась закладка камня в основание будущего Свято-Никольского храма:
       </Text>
+      <Picture
+        name='images/photos/aboutchurch/2005-02-20_zakladka-kamnya'
+        alt='Фото отца Александра'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='0 0 8px 0'
+        marginTablet='0 0 8px 0'
+        marginLaptop='0 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
       <Text
         As='p'
         fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
@@ -222,8 +235,20 @@ export function PageAboutChurch() {
         textAling={EAling.justify}
       >
         &emsp;&emsp;&emsp;В 2008 году Владыка Исидор освятил храм в честь Святителя Николая Чудотворца. Так в станице
-        появился главный праздник – престольный, который празднуется 19/6 декабря.
+        появился главный праздник – престольный, который празднуется 19/6 декабря:
       </Text>
+      <Picture
+        name='images/photos/aboutchurch/2008-03-03_osvyashenie-hrama'
+        alt='Фото отца Александра'
+        sizeMobile={{ width: '100%', height: 'auto' }}
+        sizeTablet={{ width: '100%', height: 'auto' }}
+        sizeLaptop={{ width: '100%', height: 'auto' }}
+        sizeDesktop={{ width: '100%', height: 'auto' }}
+        marginMobile='0 0 8px 0'
+        marginTablet='0 0 8px 0'
+        marginLaptop='0 0 10px 0'
+        marginDesktop='0 0 10px 0'
+      />
       <Text
         As='p'
         fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
