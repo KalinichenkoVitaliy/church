@@ -11,7 +11,7 @@ const bpMinWidthLaptop = getComputedStyle(document.documentElement).getPropertyV
 const bpMaxWidthLaptop = getComputedStyle(document.documentElement).getPropertyValue('--breakpointMaxWidthLaptop');
 const bpMinWidthDesktop = getComputedStyle(document.documentElement).getPropertyValue('--breakpointMinWidthDesktop');
 
-export type TImageSize = { width: number; height: number };
+export type TImageSize = { width: number | string; height: number | string };
 export type TMagrin = number | string;
 export type TAling = 'left' | 'right' | 'none' | 'inherit';
 
@@ -34,12 +34,6 @@ interface IPictureProps {
   alingLaptop?: TAling;
   alingDesktop?: TAling;
 }
-
-let endingImgName = '';
-let imageWidth = 0;
-let imageHeight = 0;
-let imageMargin: TMagrin = 0;
-let imageAling: TAling = 'none';
 
 export function Picture({
   name,
@@ -65,6 +59,13 @@ export function Picture({
   const isLaptop = useMediaQuery({ query: `(min-width: ${bpMinWidthLaptop}) and (max-width: ${bpMaxWidthLaptop})` });
   const isDesktop = useMediaQuery({ query: `(min-width: ${bpMinWidthDesktop})` });
 
+  let imageSrc: string = '';
+  let endingImgName: string = '';
+  let imageWidth: number | string = 0;
+  let imageHeight: number | string = 0;
+  let imageMargin: TMagrin = 0;
+  let imageAling: TAling = 'none';
+
   if (size) {
     imageWidth = size.width;
     imageHeight = size.height;
@@ -72,8 +73,8 @@ export function Picture({
   if (margin) imageMargin = margin;
   if (aling) imageAling = aling;
   if (isMobile) {
-    endingImgName = '-mobile';
     if (sizeMobile) {
+      endingImgName = '-mobile';
       imageWidth = sizeMobile.width;
       imageHeight = sizeMobile.height;
     }
@@ -81,8 +82,8 @@ export function Picture({
     if (alingMobile) imageAling = alingMobile;
   }
   if (isTablet) {
-    endingImgName = '-tablet';
     if (sizeTablet) {
+      endingImgName = '-tablet';
       imageWidth = sizeTablet.width;
       imageHeight = sizeTablet.height;
     }
@@ -90,8 +91,8 @@ export function Picture({
     if (alingTablet) imageAling = alingTablet;
   }
   if (isLaptop) {
-    endingImgName = '-laptop';
     if (sizeLaptop) {
+      endingImgName = '-laptop';
       imageWidth = sizeLaptop.width;
       imageHeight = sizeLaptop.height;
     }
@@ -99,8 +100,8 @@ export function Picture({
     if (alingLaptop) imageAling = alingLaptop;
   }
   if (isDesktop) {
-    endingImgName = '-desktop';
     if (sizeDesktop) {
+      endingImgName = '-desktop';
       imageWidth = sizeDesktop.width;
       imageHeight = sizeDesktop.height;
     }
@@ -108,7 +109,7 @@ export function Picture({
     if (alingDesktop) imageAling = alingDesktop;
   }
 
-  const imageSrc = `${name}${endingImgName}.webp`;
+  imageSrc = `${name}${endingImgName}.webp`;
 
   return (
     <LazyLoadImage
