@@ -1,17 +1,50 @@
+@import '../../assets/scss/media';
+
 .icon {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  &-vpravoslav {
+    background-image: url('../../assets/icons/icon-vpravoslav.png');
+  }
+  &-vpravoslav-big {
+    background-image: url('../../assets/icons/icon-vpravoslav-big.png');
+  }
+  &-arrow-up {
+    background-image: url('../../assets/icons/icon-arrow-up.svg');
+  }
 }
 
-.icon-vpravoslav {
-  background-image: url('../../assets/icons/icon-vpravoslav.png');
+.rate {
+  width: var(--rateWidth);
+  height: var(--rateHeight);
 }
 
-.icon-vpravoslav-big {
-  background-image: url('../../assets/icons/icon-vpravoslav-big.png');
+@media all and (min-width: $appMinWidthDesktop) {
+  .rateDesktop {
+    width: var(--rateDesktopWidth);
+    height: var(--rateDesktopHeight);
+  }
 }
 
-.icon-arrow-up {
-  background-image: url('../../assets/icons/icon-arrow-up.svg');
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+  .rateLaptop {
+    width: var(--rateLaptopWidth);
+    height: var(--rateLaptopHeight);
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .rateTablet {
+    width: var(--rateTabletWidth);
+    height: var(--rateTabletHeight);
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .rateMobile {
+    width: var(--rateMobileWidth);
+    height: var(--rateMobileHeight);
+  }
 }

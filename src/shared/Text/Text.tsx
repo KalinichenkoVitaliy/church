@@ -8,6 +8,7 @@ export type TFontSize = { size?: number; lineHeight?: string; weight?: TFontWeig
 export enum EColor {
   fullblack = '#000000',
   black23 = '#444444',
+  black27 = '#272727',
   white = '#ffffff',
   green = '#00ce03',
   greyED = '#ededed',
@@ -19,7 +20,10 @@ export enum EColor {
   grey44 = '#444444',
   grey32 = '#32373c',
   greyBlue = '#21759b',
-  goluboy = '#00b9eb',
+  blue14 = '#14baF5',
+  blue19 = '#197af6',
+  golub70 = '#70c9d3',
+  golub00 = '#00b9eb',
 }
 export enum EDecoration {
   inherit = 'inherit',

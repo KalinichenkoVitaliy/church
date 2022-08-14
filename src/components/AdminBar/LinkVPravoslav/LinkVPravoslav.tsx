@@ -12,8 +12,6 @@ export function LinkVPravoslav() {
   const isMobile = useMediaQuery({ query: `(max-width: ${bpMaxWidthMobile})` });
 
   const iconName = isMobile ? EIcons.vpravoslavBig : EIcons.vpravoslav;
-  const iconWidth = isMobile ? 41 : 25;
-  const iconHeight = isMobile ? 32 : 20;
   const textLink = isMobile
     ? 'В-Православии.рф'
     : 'В-Православии.рф - группа наших друзей - поддержите их простой подпиской!';
@@ -26,7 +24,13 @@ export function LinkVPravoslav() {
       title='В Православии - Свобода и радость! Подписывайтесь! Интересные передачи о жизни священников и многое другое'
       rel='noreferrer'
     >
-      <Icon name={iconName} width={iconWidth} height={iconHeight} />
+      <Icon
+        name={iconName}
+        rateMobile={{ width: '41px', height: '32px' }}
+        rateTablet={{ width: '25px', height: '20px' }}
+        rateLaptop={{ width: '25px', height: '20px' }}
+        rateDesktop={{ width: '25px', height: '20px' }}
+      />
       <Break step={6} />
       {textLink}
     </a>
