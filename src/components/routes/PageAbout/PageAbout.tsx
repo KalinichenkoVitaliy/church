@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './pageAboutChurch.module.scss';
+import styles from './pageAbout.module.scss';
 
 import { EAling, Text } from '../../../shared/Text';
 import { Break } from '../../../shared/Break';
@@ -8,14 +8,14 @@ import { Picture } from '../../../shared/Picture';
 
 const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
-export function PageAboutChurch() {
+export function PageAbout() {
   React.useEffect(() => {
     const newTitle = `О храме | ${documentTitle}`;
     document.title = newTitle;
   }, []);
 
   return (
-    <div className={styles.pageAboutChurch}>
+    <div className={styles.pageAbout}>
       <Text
         As='h2'
         fontMobile={{ size: 16, lineHeight: '20px', weight: 500 }}
@@ -194,7 +194,7 @@ export function PageAboutChurch() {
         &emsp;&emsp;&emsp;20 февраля 2005 года состоялась закладка камня в основание будущего Свято-Никольского храма:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2005-02-20_zakladka-kamnya'
+        name='images/photos/about/2005-02-20_zakladka-kamnya'
         alt='Фото газеты о закладке камня'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -216,7 +216,7 @@ export function PageAboutChurch() {
         &emsp;&emsp;&emsp;С Божией помощью и молитвами началось строительство храма:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2006-07-01_building-1'
+        name='images/photos/about/2006-07-01_building-1'
         alt='Фото строительства храма №1'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -228,7 +228,7 @@ export function PageAboutChurch() {
         marginDesktop='0 0 10px 0'
       />
       <Picture
-        name='images/photos/aboutchurch/2006-07-01_building-2'
+        name='images/photos/about/2006-07-01_building-2'
         alt='Фото строительства храма №2'
         sizeMobile={{ width: '49%', height: 'auto' }}
         sizeTablet={{ width: '49%', height: 'auto' }}
@@ -241,7 +241,7 @@ export function PageAboutChurch() {
         aling='left'
       />
       <Picture
-        name='images/photos/aboutchurch/2006-07-01_building-3'
+        name='images/photos/about/2006-07-01_building-3'
         alt='Фото строительства храма №3'
         sizeMobile={{ width: '49%', height: 'auto' }}
         sizeTablet={{ width: '49%', height: 'auto' }}
@@ -264,7 +264,7 @@ export function PageAboutChurch() {
         &emsp;&emsp;&emsp;В 2006 году были изготовлены и освящены купола для храма:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2006-08-01_osvyashenie-kupolov'
+        name='images/photos/about/2006-08-01_osvyashenie-kupolov'
         alt='Фото освящения куполов'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -287,7 +287,7 @@ export function PageAboutChurch() {
         торжественное освящение колоколов:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2007-10-20_osvyashenie-kolokolov-1'
+        name='images/photos/about/2007-10-20_osvyashenie-kolokolov-1'
         alt='Фото освящения колоколов'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -299,7 +299,7 @@ export function PageAboutChurch() {
         marginDesktop='0 0 10px 0'
       />
       <Picture
-        name='images/photos/aboutchurch/2007-10-20_osvyashenie-kolokolov-2'
+        name='images/photos/about/2007-10-20_osvyashenie-kolokolov-2'
         alt='Фото главного колокола'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -321,7 +321,7 @@ export function PageAboutChurch() {
         &emsp;&emsp;&emsp;Строительство храма продолжалось:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2007-08-01_building-4'
+        name='images/photos/about/2007-08-01_building-4'
         alt='Фото строительства храма №4'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -333,7 +333,7 @@ export function PageAboutChurch() {
         marginDesktop='0 0 10px 0'
       />
       <Picture
-        name='images/photos/aboutchurch/2007-08-01_building-5'
+        name='images/photos/about/2007-08-01_building-5'
         alt='Фото строительства храма №5'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -356,7 +356,7 @@ export function PageAboutChurch() {
         станице появился главный праздник – престольный, который празднуется 19/6 декабря:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2008-10-05_osvyashenie-hrama-1'
+        name='images/photos/about/2008-10-05_osvyashenie-hrama-1'
         alt='Фото газеты об освящении храма'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -368,7 +368,7 @@ export function PageAboutChurch() {
         marginDesktop='0 0 10px 0'
       />
       <Picture
-        name='images/photos/aboutchurch/2008-10-05_osvyashenie-hrama-2'
+        name='images/photos/about/2008-10-05_osvyashenie-hrama-2'
         alt='Фото освящения храма №1'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -380,7 +380,7 @@ export function PageAboutChurch() {
         marginDesktop='0 0 10px 0'
       />
       <Picture
-        name='images/photos/aboutchurch/2008-10-05_osvyashenie-hrama-3'
+        name='images/photos/about/2008-10-05_osvyashenie-hrama-3'
         alt='Фото освящения храма №2'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}
@@ -403,7 +403,7 @@ export function PageAboutChurch() {
         людей к молитве, ослепительно сверкают в небе золотые купола:
       </Text>
       <Picture
-        name='images/photos/aboutchurch/2018-03-17_hram'
+        name='images/photos/about/2018-03-17_hram'
         alt='Фото храма'
         sizeMobile={{ width: '100%', height: 'auto' }}
         sizeTablet={{ width: '100%', height: 'auto' }}

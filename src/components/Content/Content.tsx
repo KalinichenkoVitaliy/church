@@ -6,7 +6,7 @@ import styles from './content.module.scss';
 import { ContentLeft } from '../ContentLeft';
 import { ContentRight } from '../ContentRight';
 import { PagePrimary } from '../routes/PagePrimary';
-import { PageAboutChurch } from '../routes/PageAboutChurch';
+import { PageAbout } from '../routes/PageAbout';
 import { PageClergy } from '../routes/PageClergy';
 import { PageSchedule } from '../routes/PageSchedule';
 import { PageLife } from '../routes/PageLife';
@@ -22,7 +22,7 @@ export function Content() {
           <Routes>
             <Route path='/' element={<Navigate to={'/primary'} replace />} />
             <Route path='/primary' element={<PagePrimary />} />
-            <Route path='/about-church' element={<PageAboutChurch />} />
+            <Route path='/about' element={<PageAbout />} />
             <Route path='/clergy' element={<PageClergy />} />
             <Route path='/schedule' element={<PageSchedule />} />
             <Route path='/life' element={<PageLife />} />

@@ -15,11 +15,11 @@ export function Header() {
         fontTablet={{ size: 24, lineHeight: '30px', weight: 700 }}
         fontLaptop={{ size: 26, lineHeight: '32px', weight: 700 }}
         fontDesktop={{ size: 28, lineHeight: '34px', weight: 700 }}
-        color={EColor.blue14}
+        color={EColor.blue19}
       >
         Свято-Никольский храм станицы Фастовецкой
       </Text>
-      <Text As='h2' font={{ size: 13, lineHeight: '24px', weight: 400 }} color={EColor.blue14}>
+      <Text As='h2' font={{ size: 13, lineHeight: '24px', weight: 400 }} color={EColor.blue19}>
         наш приходской сайт
       </Text>
       <Break stepMobile={8} stepTablet={8} stepLaptop={12} stepDesktop={12} top />

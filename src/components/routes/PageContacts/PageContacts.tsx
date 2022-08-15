@@ -30,6 +30,39 @@ export function PageContacts() {
         Контакты
       </Text>
       <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '23px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
+      >
+        <strong>Телефон прихода:</strong>{' '}
+        <a className={styles.linkTo} href='tel:+78619645627'>
+          +7 (861-96) 4-56-27
+        </a>
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '23px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
+      >
+        <strong>Ящик электронной почты (email):</strong>{' '}
+        <a className={styles.linkTo} href='mailto:xpam-fastov-ne@mail.ru'>
+          xpam-fastov-ne@mail.ru
+        </a>
+      </Text>
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '23px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
+      >
+        Вы можете написать нам прямо здесь и мы вам обязательно ответим:
+      </Text>
     </div>
   );
 }
