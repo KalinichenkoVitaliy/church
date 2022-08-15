@@ -78,7 +78,7 @@ interface ITextProps {
   textAling?: EAling;
   cursor?: ECursor;
   title?: string;
-  topClass?: string;
+  parentClass?: string;
   onClick?: () => void;
 }
 const NOOP = () => {};
@@ -98,7 +98,7 @@ export function Text({
   textAling,
   cursor,
   title,
-  topClass,
+  parentClass,
   onClick = NOOP,
 }: ITextProps) {
   const propFont = font
@@ -165,8 +165,7 @@ export function Text({
     { [styles.textAling]: textAling },
     { [styles.cursor]: cursor },
     { [styles.color]: color },
-    { [styles.topClass]: topClass },
-    topClass
+    parentClass
   );
 
   return (

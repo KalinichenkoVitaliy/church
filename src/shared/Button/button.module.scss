@@ -1,0 +1,61 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/media';
+
+.button {
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: solid;
+  font-weight: 500;
+  @include animeTransitionEasyInOut03(border-color color background-color);
+
+  &.button:disabled {
+    opacity: 0.5;
+  }
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+
+.action-do {
+  border-color: var(--greyBlue);
+  color: var(--white);
+  background-color: var(--greyBlue);
+
+  &:hover.actived {
+    border-color: var(--blue19);
+    color: var(--white);
+    background-color: var(--blue19);
+  }
+}
+
+@media all and (min-width: $appMinWidthDesktop) {
+  .button {
+    padding: 14px 18px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+  .button {
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .button {
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .button {
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}

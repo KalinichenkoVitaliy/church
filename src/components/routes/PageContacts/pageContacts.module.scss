@@ -1,0 +1,48 @@
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/media';
+
+.pageContacts {
+  width: 100%;
+}
+
+.linkTo {
+  text-decoration: underline;
+  color: inherit;
+  @include animeTransitionEasyInOut03(color);
+
+  &:hover {
+    color: var(--golub00);
+  }
+}
+
+.placeForm {
+  width: 100%;
+  max-width: max-content;
+  min-width: min-content;
+  border-radius: 4px;
+  background-color: var(--blueAC);
+}
+
+@media all and (min-width: $appMinWidthDesktop) {
+  .placeForm {
+    padding: 30px;
+  }
+}
+
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+  .placeForm {
+    padding: 20px;
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .placeForm {
+    padding: 15px;
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .placeForm {
+    padding: 10px;
+  }
+}

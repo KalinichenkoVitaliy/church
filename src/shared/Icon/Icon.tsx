@@ -17,7 +17,7 @@ interface IIconProps {
   rateTablet?: TRate;
   rateLaptop?: TRate;
   rateDesktop?: TRate;
-  topClass?: string;
+  parentClass?: string;
 }
 
 export function Icon({
@@ -28,7 +28,7 @@ export function Icon({
   rateTablet,
   rateLaptop,
   rateDesktop,
-  topClass,
+  parentClass,
 }: IIconProps) {
   const propRate = !rate
     ? undefined
@@ -103,7 +103,7 @@ export function Icon({
     { [styles[`rateTablet`]]: rateTablet },
     { [styles[`rateLaptop`]]: rateLaptop },
     { [styles[`rateDesktop`]]: rateDesktop },
-    topClass
+    parentClass
   );
 
   return <div className={classes} style={customStyles} />;

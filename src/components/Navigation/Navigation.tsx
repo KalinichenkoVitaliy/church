@@ -53,7 +53,7 @@ export function Navigation() {
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
         title='На главнуюю страницу'
-        topClass={classPrimary}
+        parentClass={classPrimary}
         onClick={() => {
           handleClickOnLink('primary');
         }}
@@ -68,7 +68,7 @@ export function Navigation() {
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
         title='Подробнее о храме'
-        topClass={classAbout}
+        parentClass={classAbout}
         onClick={() => {
           handleClickOnLink('about');
         }}
@@ -83,7 +83,7 @@ export function Navigation() {
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
         title='Подробнее о духовенстве'
-        topClass={classClergy}
+        parentClass={classClergy}
         onClick={() => {
           handleClickOnLink('clergy');
         }}
@@ -98,7 +98,7 @@ export function Navigation() {
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
         title='Подробнее о расписание богослужений'
-        topClass={classSchedule}
+        parentClass={classSchedule}
         onClick={() => {
           handleClickOnLink('schedule');
         }}
@@ -113,7 +113,7 @@ export function Navigation() {
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
         title='Подробнее о расписание богослужений'
-        topClass={classLife}
+        parentClass={classLife}
         onClick={() => {
           handleClickOnLink('life');
         }}
@@ -128,7 +128,7 @@ export function Navigation() {
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
         title='Контакты, адреса и обратная связь'
-        topClass={classContacts}
+        parentClass={classContacts}
         onClick={() => {
           handleClickOnLink('contacts');
         }}

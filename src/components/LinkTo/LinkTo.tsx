@@ -19,7 +19,7 @@ interface ILinkToProps {
   textDecoration?: EDecoration;
   cursor?: ECursor;
   title?: string;
-  topClass?: string;
+  parentClass?: string;
   onClick?: () => void;
 }
 const NOOP = () => {};
@@ -38,7 +38,7 @@ export function LinkTo({
   textDecoration,
   cursor,
   title,
-  topClass,
+  parentClass,
   onClick = NOOP,
 }: ILinkToProps) {
   return (
@@ -55,7 +55,7 @@ export function LinkTo({
         textDecoration={textDecoration}
         cursor={cursor}
         title={title}
-        topClass={topClass}
+        parentClass={parentClass}
         onClick={onClick}
       >
         {children}
