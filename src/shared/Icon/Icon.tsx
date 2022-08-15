@@ -6,7 +6,6 @@ import styles from './icon.module.scss';
 export enum EIcons {
   vpravoslav = 'vpravoslav',
   vpravoslavBig = 'vpravoslav-big',
-  arrowUp = 'arrow-up',
 }
 export type TRate = { size?: string; width?: string; height?: string };
 

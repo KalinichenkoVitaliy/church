@@ -1,54 +1,82 @@
 @import '../../assets/scss/mixins';
 @import '../../assets/scss/media';
 
-.buttonArrowUp {
+.arrowUp {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: var(--black27);
-  @include animeTransitionLinear06(opacity background-color);
+  background-color: transparent;
+}
 
-  &:hover {
-    background: var(--black27) -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0));
+.svgArrowUp {
+  object-fit: cover;
+  object-position: center;
+
+  & > circle {
+    fill: rgba(0, 0, 0, 0.5);
+    @include animeTransitionEasyInOut03(fill);
   }
+  & > path {
+    stroke: rgba(255, 255, 255, 0.6);
+    @include animeTransitionEasyInOut03(stroke);
+  }
+
+  &:hover circle {
+    fill: var(--fullblack);
+  }
+  & > circle:hover + path,
+  & > path:hover {
+    stroke: var(--white);
+  }
+
   &Show {
-    cursor: pointer;
     opacity: 1;
     animation: animationShow 0.5s linear;
+
+    & > circle {
+      cursor: pointer;
+    }
+    & > path {
+      cursor: pointer;
+    }
   }
+
   &Hide {
     opacity: 0;
     animation: animationHide 0.5s linear;
+
+    & > circle {
+      cursor: default;
+    }
+    & > path {
+      cursor: default;
+    }
   }
 }
 
 @media all and (min-width: $appMinWidthDesktop) {
-  .buttonArrowUp {
+  .arrowUp {
     width: 48px;
     height: 48px;
   }
 }
 
 @media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
-  .buttonArrowUp {
+  .arrowUp {
     width: 46px;
     height: 46px;
   }
 }
 
 @media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
-  .buttonArrowUp {
+  .arrowUp {
     width: 46px;
     height: 46px;
   }
 }
 
 @media all and (max-width: $appMaxWidthMobile) {
-  .buttonArrowUp {
+  .arrowUp {
     width: 50px;
     height: 50px;
   }
