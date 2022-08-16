@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import styles from './app.module.scss';
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className={styles.app}>
       <AdminBar />
+      <ToastContainer className={styles.toastContainer} toastClassName={styles.toast} autoClose={5000} />
       <BrowserRouter>
         <Container>
           <Header />

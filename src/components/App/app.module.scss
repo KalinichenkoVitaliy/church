@@ -1,5 +1,12 @@
 @import '../../assets/scss/media';
 
+div .toastContainer {
+  top: 3em;
+}
+div .toast {
+  box-shadow: 1px 1px 12px black;
+}
+
 @media all and (min-width: $appMinWidthDesktop) {
   .app {
     width: calc(100% - ($appPadRLDesktop + 10px) * 2);
