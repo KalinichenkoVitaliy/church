@@ -4,7 +4,7 @@ div .toastContainer {
   top: 3em;
 }
 div .toast {
-  box-shadow: 1px 1px 12px black;
+  box-shadow: 0 0 12px black;
 }
 
 @media all and (min-width: $appMinWidthDesktop) {

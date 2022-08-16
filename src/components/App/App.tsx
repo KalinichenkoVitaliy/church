@@ -14,7 +14,7 @@ function App() {
   return (
     <div className={styles.app}>
       <AdminBar />
-      <ToastContainer className={styles.toastContainer} toastClassName={styles.toast} autoClose={5000} />
+      <ToastContainer className={styles.toastContainer} toastClassName={styles.toast} autoClose={false} />
       <BrowserRouter>
         <Container>
           <Header />

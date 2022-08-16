@@ -1,26 +1,21 @@
 import React from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import styles from './formFeedback.module.scss';
+import { send } from 'emailjs-com';
 import apiKeys from '../../utils/apikeys';
+
+import styles from './formFeedback.module.scss';
 
 import { checkCharOnDigit, valueToPhone } from '../../utils/lib';
 
 import { Button } from '../../shared/Button';
 
-// const mailClient = new SMTPClient({
-//   user: 'sendingmails@mail.ru',
-//   password: 'SjSeEguNzJ9p16R05ckP',
-//   host: 'smtp.mail.ru',
-//   ssl: true,
-// });
+let isSending = false;
 
 export function FormFeedback() {
-  const form = React.useRef(null);
   const {
     register,
     handleSubmit,
@@ -39,41 +34,42 @@ export function FormFeedback() {
 
   const formSubmit = (data: FieldValues, event?: React.BaseSyntheticEvent) => {
     event?.preventDefault();
-    notifySending();
-    console.log('form.current:', form.current);
+    if (isSending) return;
+    isSending = true;
 
-    if (form && form.current) {
-      emailjs.sendForm(apiKeys.SERVICE_ID, apiKeys.TEMPLATE_ID, form.current, apiKeys.PUBLIC_KEY).then(
-        (result) => {
-          console.log('result:', result);
-          console.log('result.text:', result.text);
-          notifySended();
-        },
-        (error) => {
-          console.log('error:', error);
-          console.log('error.text:', error.text);
-          notifyError(error.text);
-        }
-      );
-    }
-
-    // alert(JSON.stringify(data));
-    setValuePhone('');
-    reset();
+    const toastIdSending = toast.loading('Сообщение отправляется ...');
+    send(
+      apiKeys.SERVICE_ID,
+      apiKeys.TEMPLATE_ID,
+      {
+        from_name: 'supppochta@gmail.com',
+        to_name: 'xpam-fastov-ne@mail.ru',
+        message: data,
+        reply_to: 'kalinichenkovv@mail.ru',
+      },
+      apiKeys.PUBLIC_KEY
+    )
+      .then((response) => {
+        toast.dismiss(toastIdSending);
+        toast('Сообщение успешно отправлено !', { type: 'success', autoClose: 15000 });
+        setValuePhone('');
+        reset();
+        isSending = false;
+      })
+      .catch((error) => {
+        toast.dismiss(toastIdSending);
+        toast(`Ошибка отправки сообщения: ${error.text}`, { type: 'error', autoClose: 15000 });
+        isSending = false;
+      });
   };
-
-  const notifySending = () => toast('Сообщение отправляется ...', { type: 'info' });
-  const notifySended = () => toast('Сообщение успешно отправлено!', { type: 'success', autoClose: false });
-  const notifyError = (message: any) =>
-    toast(`Ошибка отправки сообщения: ${message}`, { type: 'error', autoClose: false });
 
   const refErrorPhone: any = errors.inputTel ? errors.inputTel.ref : undefined;
   const isPhoneFull = refErrorPhone?.value.length === 18;
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(formSubmit)} ref={form}>
+    <form id='formFeedback' className={styles.form} onSubmit={handleSubmit(formSubmit)}>
       <label className={styles.formLabel}>
-        Имя:
+        Имя*:
         <div className={styles.formLabelGroup + ' ' + styles.formLabelGroupInput}>
           <input
             {...register('user_name', {
@@ -95,7 +91,7 @@ export function FormFeedback() {
         </div>
       </label>
       <label className={styles.formLabel}>
-        Телефонный номер:
+        Телефонный номер*:
         <div className={styles.formLabelGroup + ' ' + styles.formLabelGroupInput}>
           <input
             {...register('user_tel', {
@@ -125,7 +121,29 @@ export function FormFeedback() {
         </div>
       </label>
       <label className={styles.formLabel}>
-        Сообщение:
+        E-mail*:
+        <div className={styles.formLabelGroup + ' ' + styles.formLabelGroupInput}>
+          <input
+            {...register('user_mail', {
+              required: 'Поле обязательно к заполнению',
+              pattern: {
+                value: /^[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z]{2,4}$/,
+                message: 'Укажите верный e-mail',
+              },
+            })}
+            id='user_mail'
+            className={styles.formInput}
+            type='text'
+            name='user_mail'
+            placeholder='укажите ваш e-mail'
+          />
+          {errors.user_mail && (
+            <div className={styles.formError}>⚠ {errors.user_mail.message?.toString() || 'Error!'}</div>
+          )}
+        </div>
+      </label>
+      <label className={styles.formLabel}>
+        Сообщение*:
         <div className={styles.formLabelGroup}>
           <textarea
             {...register('user_message', {
