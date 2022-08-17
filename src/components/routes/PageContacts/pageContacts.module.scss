@@ -23,9 +23,17 @@
   background-color: var(--blueAC);
 }
 
+.placeMap {
+  width: 100%;
+  border: 1px dotted black;
+}
+
 @media all and (min-width: $appMinWidthDesktop) {
   .placeForm {
     padding: 30px;
+  }
+  .placeMap {
+    height: 70vh;
   }
 }
 
@@ -33,16 +41,25 @@
   .placeForm {
     padding: 20px;
   }
+  .placeMap {
+    height: 50vh;
+  }
 }
 
 @media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
   .placeForm {
     padding: 15px;
   }
+  .placeMap {
+    height: 50vh;
+  }
 }
 
 @media all and (max-width: $appMaxWidthMobile) {
   .placeForm {
     padding: 10px;
+  }
+  .placeMap {
+    height: 40vh;
   }
 }

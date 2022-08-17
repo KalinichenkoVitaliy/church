@@ -4,7 +4,8 @@ import styles from './pageContacts.module.scss';
 
 import { EAling, Text } from '../../../shared/Text';
 import { Break } from '../../../shared/Break';
-import { FormFeedback } from '../../forms';
+import { FormFeedback } from '../../FormFeedback';
+import { YandexMap } from '../../YandexMap';
 
 const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
@@ -70,6 +71,20 @@ export function PageContacts() {
         <FormFeedback />
       </div>
       <Break stepMobile={12} stepTablet={14} stepLaptop={16} stepDesktop={18} top />
+      <Text
+        As='p'
+        fontMobile={{ size: 14, lineHeight: '20px', weight: 400 }}
+        fontTablet={{ size: 15, lineHeight: '23px', weight: 400 }}
+        fontLaptop={{ size: 17, lineHeight: '27px', weight: 400 }}
+        fontDesktop={{ size: 19, lineHeight: '29px', weight: 300 }}
+      >
+        <strong>Адрес расположения храма:</strong> Россия, Краснодарский край, Тихорецкий район, станица Фастовецкая,
+        улица Ленина, дом 3-а
+      </Text>
+      <Break stepMobile={12} stepTablet={14} stepLaptop={16} stepDesktop={18} top />
+      <div className={styles.placeMap}>
+        <YandexMap />
+      </div>
     </div>
   );
 }
