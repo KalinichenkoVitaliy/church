@@ -4,21 +4,20 @@ import styles from './yandexMap.module.scss';
 
 // Скрипт подключение API Яндекс-карты
 const connectApiYandexMap = () => {
-  const scriptYandexMap = document.createElement('script');
-  scriptYandexMap.id = 'scriptYandexMap';
-  scriptYandexMap.type = 'text/javascript';
-  scriptYandexMap.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU';
-  document.head.append(scriptYandexMap);
+  const scriptConnectMap = document.createElement('script');
+  scriptConnectMap.id = 'connectYandexMap';
+  scriptConnectMap.type = 'text/javascript';
+  scriptConnectMap.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU';
+  document.head.append(scriptConnectMap);
 };
 connectApiYandexMap();
 
 // Скрипт отрисовки карты в элементе DOM id='map'
-let myMap, timeoutId1, timeoutId2;
-const renderYandexMap = () => {
-  const scriptRenderYandexMap = document.createElement('script');
-  scriptRenderYandexMap.id = 'scriptRenderYandexMap';
-  scriptRenderYandexMap.type = 'text/javascript';
-  scriptRenderYandexMap.innerHTML = `
+const initYandexMap = () => {
+  const scriptInitMap = document.createElement('script');
+  scriptInitMap.id = 'initYandexMap';
+  scriptInitMap.type = 'text/javascript';
+  scriptInitMap.innerHTML = `
   function init() {
     myMap = new ymaps.Map(
       'yandexMap', 
@@ -36,7 +35,16 @@ const renderYandexMap = () => {
       })
     );
   }
-  
+  `;
+  document.head.append(scriptInitMap);
+};
+
+// Скрипт отрисовки карты в элементе DOM id='map'
+const showYandexMap = () => {
+  const scriptShowMap = document.createElement('script');
+  scriptShowMap.id = 'showYandexMap';
+  scriptShowMap.type = 'text/javascript';
+  scriptShowMap.innerHTML = `
   timeoutId1 = setInterval(() => {
     if (typeof ymaps !== 'undefined') {
       clearTimeout(timeoutId1);
@@ -49,25 +57,37 @@ const renderYandexMap = () => {
     }
   }, 100);
   `;
-  document.head.append(scriptRenderYandexMap);
+  document.head.append(scriptShowMap);
 };
 
 export function YandexMap() {
+  const [isInitYandexMap, setIsInitYandexMap] = React.useState(false);
+  const [isShowYandexMap, setIsShowYandexMap] = React.useState(false);
+
   React.useEffect(() => {
-    const elemScriptRenderYandexMap = document.getElementById('scriptRenderYandexMap');
-    if (document.getElementById('scriptYandexMap') && !elemScriptRenderYandexMap) {
-      renderYandexMap();
+    let myMap: undefined, timeoutId1: undefined, timeoutId2: undefined;
+
+    if (!isInitYandexMap) {
+      if (!document.getElementById('initYandexMap')) initYandexMap();
+      if (!isInitYandexMap) setIsInitYandexMap(true);
     }
+
+    if (isInitYandexMap && !isShowYandexMap) {
+      if (!document.getElementById('showYandexMap')) showYandexMap();
+      if (!isShowYandexMap) setIsShowYandexMap(true);
+    }
+
     return () => {
-      elemScriptRenderYandexMap?.remove();
-      myMap = undefined;
-      timeoutId1 = undefined;
-      timeoutId2 = undefined;
-      timeoutId1 = myMap;
-      timeoutId2 = timeoutId1;
-      myMap = timeoutId2;
+      document.getElementById('showYandexMap')?.remove();
+      document.getElementById('initYandexMap')?.remove();
+
+      if (!myMap || !timeoutId1 || !timeoutId2) {
+        myMap = undefined;
+        timeoutId1 = undefined;
+        timeoutId2 = undefined;
+      }
     };
-  }, []);
+  }, [isInitYandexMap, isShowYandexMap]);
 
   return <div id='yandexMap' className={styles.map} />;
 }
