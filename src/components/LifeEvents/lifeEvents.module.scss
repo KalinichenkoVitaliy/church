@@ -1,0 +1,72 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/media';
+
+.lifeEvents {
+  width: 100%;
+}
+
+.accordion {
+  &__item + &__item {
+    border-top: 1px solid var(--white);
+  }
+  &__button {
+    width: 100%;
+    padding: 5px;
+    text-align: left;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--blueD4);
+    cursor: pointer;
+    @include animeTransitionEasyInOut03(background-color);
+
+    &:hover {
+      background-color: var(--blue82);
+    }
+    &[aria-expanded='true'],
+    &[aria-selected='true'] {
+      background-color: var(--blue82);
+    }
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 12px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+      @include animeTransition(transform, 0.4s, ease-in-out);
+    }
+    &[aria-expanded='true']::before,
+    &[aria-selected='true']::before {
+      transform: rotate(45deg);
+    }
+  }
+  &__panel {
+    padding: 5px 5px 10px 15px;
+    animation: fadein 0.4s ease-in-out;
+
+    & [hidden] {
+      display: none;
+    }
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media all and (min-width: $appMinWidthDesktop) {
+}
+@media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
+}
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+}
+@media all and (max-width: $appMaxWidthMobile) {
+}

@@ -119,6 +119,8 @@ export function Picture({
       width={imageWidth}
       height={imageHeight}
       style={{ float: imageAling, margin: imageMargin }}
+      visibleByDefault={true}
+      effect={'blur'}
     />
   );
 }

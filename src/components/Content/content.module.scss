@@ -21,13 +21,13 @@
 
 @media all and (min-width: $appMinWidthDesktop) {
   .content {
-    gap: 80px;
+    gap: 50px;
   }
   .left {
-    grid-column-end: 9;
+    grid-column-end: 11;
   }
   .right {
-    grid-column-start: 9;
+    grid-column-start: 11;
   }
 }
 

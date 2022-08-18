@@ -4,11 +4,13 @@ import styles from './pageLife.module.scss';
 
 import { EAling, Text } from '../../../shared/Text';
 import { Break } from '../../../shared/Break';
-// import { Picture } from '../../../shared/Picture';
+import { LifeEvents } from '../../LifeEvents';
 
 const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
 export function PageLife() {
+  console.log('PageLife run');
+
   React.useEffect(() => {
     const newTitle = `Приходская жизнь | ${documentTitle}`;
     document.title = newTitle;
@@ -41,6 +43,7 @@ export function PageLife() {
         События:
       </Text>
       <Break stepMobile={8} stepTablet={10} stepLaptop={14} stepDesktop={18} top />
+      <LifeEvents />
     </div>
   );
 }

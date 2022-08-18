@@ -1,3 +1,11 @@
+// @import '../../assets/scss/mixins';
+// @include animeTransitionEasyInOut03(outline-color color border);
+
+@mixin animeTransition($prop, $time, $fun) {
+  transition-property: $prop;
+  transition-duration: $time;
+  transition-timing-function: $fun;
+}
 @mixin animeTransitionLinear03($prop) {
   transition-property: $prop;
   transition-duration: 0.3s;

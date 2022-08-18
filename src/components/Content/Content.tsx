@@ -15,6 +15,8 @@ import { PageNotFound } from '../routes/PageNotFound';
 import { ScrollToTop } from '../../shared/ScrollToTop';
 
 export function Content() {
+  console.log('Content run');
+
   return (
     <main className={styles.content}>
       <section className={styles.left}>
