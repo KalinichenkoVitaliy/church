@@ -11,8 +11,6 @@ import { Content } from '../Content';
 import { Footer } from '../Footer';
 
 function App() {
-  console.log('App run');
-
   return (
     <div className={styles.app}>
       <AdminBar />

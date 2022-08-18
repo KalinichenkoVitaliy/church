@@ -9,8 +9,6 @@ import { LifeEvents } from '../../LifeEvents';
 const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
 export function PageLife() {
-  console.log('PageLife run');
-
   React.useEffect(() => {
     const newTitle = `Приходская жизнь | ${documentTitle}`;
     document.title = newTitle;

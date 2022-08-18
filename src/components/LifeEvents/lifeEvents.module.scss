@@ -11,10 +11,11 @@
   }
   &__button {
     width: 100%;
-    padding: 5px;
-    text-align: left;
+    padding: 6px 5px 6px 8px;
     border: none;
     border-radius: 3px;
+    text-align: left;
+    line-height: 20px;
     background-color: var(--blueD4);
     cursor: pointer;
     @include animeTransitionEasyInOut03(background-color);
@@ -29,9 +30,9 @@
     &:before {
       content: '';
       display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin-right: 12px;
+      width: 7px;
+      height: 7px;
+      margin-right: 10px;
       border-right: 2px solid currentColor;
       border-bottom: 2px solid currentColor;
       transform: rotate(-45deg);
