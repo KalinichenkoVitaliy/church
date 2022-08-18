@@ -30,6 +30,10 @@
     font-weight: 300;
     color: var(--black23);
     background-color: var(--white);
+
+    &::placeholder {
+      color: var(--grey9F);
+    }
   }
   &Error {
     position: absolute;
@@ -43,6 +47,10 @@
     font-family: inherit;
     font-weight: 300;
     color: var(--black23);
+
+    &::placeholder {
+      color: var(--grey9F);
+    }
   }
 }
 

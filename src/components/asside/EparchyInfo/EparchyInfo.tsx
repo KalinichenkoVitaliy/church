@@ -7,7 +7,7 @@ import { Text } from '../../../shared/Text';
 export function EparchyInfo() {
   return (
     <div className={styles.eparchyInfo}>
-      <Text As='p' font={{ weight: 700 }}>
+      <Text As='p' font={{ lineHeight: '2', weight: 700 }} parentClass={styles.title}>
         Храм Николая Чудотворца
       </Text>
       <Text As='p'>Страница прихода</Text>

@@ -1,9 +1,14 @@
 @import '../../../assets/scss/mixins';
+@import '../../../assets/scss/media';
 
 .eparchyInfo {
   font-size: 14px;
-  line-height: 21px;
+  line-height: 20px;
   color: var(--grey44);
+}
+
+.title {
+  width: max-content;
 }
 
 .link {
@@ -12,6 +17,18 @@
   @include animeTransitionEasyInOut03(color);
 
   &:hover {
-    color: var(--greyBlue);
+    color: var(--blue19);
+  }
+}
+
+@media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
+  .title {
+    border-top: 1px solid var(--greyDD);
+  }
+}
+
+@media all and (max-width: $appMaxWidthMobile) {
+  .title {
+    border-top: 1px solid var(--greyDD);
   }
 }

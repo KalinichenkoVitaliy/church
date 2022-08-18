@@ -9,13 +9,11 @@
 
 .left {
   grid-column-start: 1;
-  grid-column-end: 9;
   grid-row-start: 1;
   grid-row-end: 2;
 }
 
 .right {
-  grid-column-start: 9;
   grid-column-end: 13;
   grid-row-start: 1;
   grid-row-end: 2;
@@ -25,17 +23,31 @@
   .content {
     gap: 80px;
   }
+  .left {
+    grid-column-end: 9;
+  }
+  .right {
+    grid-column-start: 9;
+  }
 }
 
 @media all and (min-width: $appMinWidthLaptop) and (max-width: $appMaxWidthLaptop) {
   .content {
-    gap: 60px;
+    gap: 30px;
+  }
+  .left {
+    grid-column-end: 10;
+  }
+  .right {
+    grid-column-start: 10;
   }
 }
 
 @media all and (min-width: $appMinWidthTablet) and (max-width: $appMaxWidthTablet) {
   .content {
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 

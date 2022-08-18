@@ -97,7 +97,7 @@ export function Navigation() {
         fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
-        title='Подробнее о расписание богослужений'
+        title='Подробнее о расписании богослужений'
         parentClass={classSchedule}
         onClick={() => {
           handleClickOnLink('schedule');
@@ -112,7 +112,7 @@ export function Navigation() {
         fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
         fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
         upperCase
-        title='Подробнее о расписание богослужений'
+        title='Подробнее о жизни прихода и его событиях'
         parentClass={classLife}
         onClick={() => {
           handleClickOnLink('life');
