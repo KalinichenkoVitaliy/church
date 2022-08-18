@@ -26,7 +26,7 @@ export function LifeEvents() {
 
   React.useEffect(() => {
     console.log('files:', files);
-    let delayTimeout = 100;
+    let delayTimeout = 200;
     const accumItems: TNew[] = [];
 
     for (let i = 0; i < files.length; i++) {
@@ -37,7 +37,7 @@ export function LifeEvents() {
           accumItems.push(res.data);
         })
         .catch((err) => console.log('axios - err', err));
-      delayTimeout += 100;
+      delayTimeout += 200;
     }
 
     setTimeout(() => {
