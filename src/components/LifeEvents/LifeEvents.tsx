@@ -24,52 +24,47 @@ type TNew = {
 export function LifeEvents() {
   const [items, setItems] = React.useState<TNew[]>([]);
 
-  // React.useEffect(() => {
-  //   console.log('files:', files);
-  //   // let delayTimeout = 200;
-  //   const accumItems: TNew[] = [];
+  React.useEffect(() => {
+    console.log('files:', files);
+    const accumItems: TNew[] = [];
 
-  //   for (let i = 0; i < files.length; i++) {
-  //     // const runAxios = async () => {
-  //     //   const prom = await axios.get(files[i]).then((res) => {
-  //     //     return res;
-  //     //   });
-  //     //   const data = await prom;
-  //     //   return data;
-  //     // };
-  //     // axios
-  //     //   .get(files[i])
-  //     //   .then((res) => {
-  //     //     console.log('axios - res.data', res.data);
-  //     //     accumItems.push(res.data);
-  //     //   })
-  //     //   .catch((err) => console.log('axios - err', err));
-  //     // delayTimeout += 200;
-  //   }
+    const prepareForRender = (curIndex: number, maxIndex: number) => {
+      if (curIndex >= maxIndex) {
+        console.log('accumItems', accumItems);
+        setItems(
+          accumItems.sort((n1, n2) => {
+            if (n1.uuid < n2.uuid) return 1;
+            if (n1.uuid > n2.uuid) return -1;
+            return 0;
+          })
+        );
+      }
+    };
 
-  //   // setTimeout(() => {
-  //   //   console.log('accumItems', accumItems);
-  //   //   setItems(
-  //   //     accumItems.sort((n1, n2) => {
-  //   //       if (n1.uuid < n2.uuid) return 1;
-  //   //       if (n1.uuid > n2.uuid) return -1;
-  //   //       return 0;
-  //   //     })
-  //   //   );
-  //   // }, delayTimeout);
-  // }, []);
-
-  console.log('files:', files);
-  const accumItems: TNew[] = [];
-  for (let i = 0; i < files.length; i++) {
-    axios
-      .get(files[i])
-      .then((res) => {
-        console.log('axios - res.data', res.data);
-        accumItems.push(res.data);
-      })
-      .catch((err) => console.log('axios - err', err));
-  }
+    for (let i = 0; i < files.length; i++) {
+      axios
+        .get(files[i])
+        .then((res) => {
+          console.log('axios - res.data', res.data);
+          accumItems.push(res.data);
+          // if (i === files.length - 1) {
+          //   console.log('accumItems', accumItems);
+          //   setItems(
+          //     accumItems.sort((n1, n2) => {
+          //       if (n1.uuid < n2.uuid) return 1;
+          //       if (n1.uuid > n2.uuid) return -1;
+          //       return 0;
+          //     })
+          //   );
+          // }
+          prepareForRender(i, files.length - 1);
+        })
+        .catch((err) => {
+          console.log('axios - err', err);
+          prepareForRender(i, files.length - 1);
+        });
+    }
+  }, []);
 
   return (
     <div className={styles.lifeEvents}>
