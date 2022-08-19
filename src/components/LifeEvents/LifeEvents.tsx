@@ -1,5 +1,5 @@
 import React from 'react';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import {
   Accordion,
   AccordionItem,
@@ -24,33 +24,43 @@ type TNew = {
 export function LifeEvents() {
   const [items, setItems] = React.useState<TNew[]>([]);
 
-  React.useEffect(() => {
-    console.log('files:', files);
-    let delayTimeout = 200;
-    const accumItems: TNew[] = [];
+  // React.useEffect(() => {
+  //   console.log('files:', files);
+  //   // let delayTimeout = 200;
+  //   const accumItems: TNew[] = [];
 
-    for (let i = 0; i < files.length; i++) {
-      axios
-        .get(files[i])
-        .then((res) => {
-          console.log('axios - res.data', res.data);
-          accumItems.push(res.data);
-        })
-        .catch((err) => console.log('axios - err', err));
-      delayTimeout += 200;
-    }
+  //   for (let i = 0; i < files.length; i++) {
+  //     // const runAxios = async () => {
+  //     //   const prom = await axios.get(files[i]).then((res) => {
+  //     //     return res;
+  //     //   });
+  //     //   const data = await prom;
+  //     //   return data;
+  //     // };
+  //     // axios
+  //     //   .get(files[i])
+  //     //   .then((res) => {
+  //     //     console.log('axios - res.data', res.data);
+  //     //     accumItems.push(res.data);
+  //     //   })
+  //     //   .catch((err) => console.log('axios - err', err));
+  //     // delayTimeout += 200;
+  //   }
 
-    setTimeout(() => {
-      console.log('accumItems', accumItems);
-      setItems(
-        accumItems.sort((n1, n2) => {
-          if (n1.uuid < n2.uuid) return 1;
-          if (n1.uuid > n2.uuid) return -1;
-          return 0;
-        })
-      );
-    }, delayTimeout);
-  }, []);
+  //   // setTimeout(() => {
+  //   //   console.log('accumItems', accumItems);
+  //   //   setItems(
+  //   //     accumItems.sort((n1, n2) => {
+  //   //       if (n1.uuid < n2.uuid) return 1;
+  //   //       if (n1.uuid > n2.uuid) return -1;
+  //   //       return 0;
+  //   //     })
+  //   //   );
+  //   // }, delayTimeout);
+  // }, []);
+  console.log('files:', files);
+
+  console.log('LifeEvents');
 
   return (
     <div className={styles.lifeEvents}>
