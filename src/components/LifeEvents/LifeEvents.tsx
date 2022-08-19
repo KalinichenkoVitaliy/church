@@ -95,15 +95,29 @@ const disassemblyContent = (idBloc: string, inBloc: TBloc, index: number) => {
         <Picture
           key={index}
           name={namePicture}
-          alt={`Фото ${namePicture}`}
+          alt={`Фото /${namePicture}`}
           sizeMobile={{ width: '100%', height: 'auto' }}
           sizeTablet={{ width: '100%', height: 'auto' }}
           sizeLaptop={{ width: '100%', height: 'auto' }}
           sizeDesktop={{ width: '100%', height: 'auto' }}
-          marginMobile='3px 0 8px 0'
-          marginTablet='3px 0 8px 0'
-          marginLaptop='3px 0 10px 0'
-          marginDesktop='0 0 10px 0'
+          marginMobile='4px 0 8px 0'
+          marginTablet='4px 0 8px 0'
+          marginLaptop='4px 0 10px 0'
+          marginDesktop='5px 0 10px 0'
+        />
+      );
+    case 'picture-once':
+      const namePictureOnce = `news/${idBloc}/${inBloc.value}`;
+      return (
+        <Picture
+          key={index}
+          name={namePictureOnce}
+          alt={`Фото /${namePictureOnce}`}
+          size={{ width: '100%', height: 'auto' }}
+          marginMobile='4px 0 8px 0'
+          marginTablet='4px 0 8px 0'
+          marginLaptop='4px 0 10px 0'
+          marginDesktop='5px 0 10px 0'
         />
       );
 

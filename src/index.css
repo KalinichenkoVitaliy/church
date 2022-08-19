@@ -121,7 +121,7 @@ body {
   font-family: 'Helvetica', sans-serif;
   font-size: 14px;
   line-height: 16px;
-  background-color: var(--golub70);
+  background-color: var(--white);
   background-image: url('./assets/image/bg.png');
   border-image-repeat: repeat;
 }
@@ -145,7 +145,6 @@ ul {
 
 @media all and (max-width: 960px) {
   body {
-    background-color: var(--white);
     background-image: none;
   }
 }
