@@ -72,6 +72,7 @@ interface ITextProps {
   fontLaptop?: TFontSize;
   fontDesktop?: TFontSize;
   color?: EColor;
+  indent?: boolean;
   inline?: boolean;
   upperCase?: boolean;
   textDecoration?: EDecoration;
@@ -92,6 +93,7 @@ export function Text({
   fontLaptop,
   fontDesktop,
   color,
+  indent = false,
   inline = false,
   upperCase = false,
   textDecoration,
@@ -170,6 +172,7 @@ export function Text({
 
   return (
     <As className={classes} style={customStyles} title={title} onClick={onClick}>
+      {As === 'p' && indent ? <span>&emsp;&emsp;&emsp;</span> : ''}
       {children}
     </As>
   );

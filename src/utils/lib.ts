@@ -61,3 +61,13 @@ export function valueToPhone(inValue: string) {
   // isValid = regexpTel.test(valueShow);
   return valueShow;
 }
+
+/**
+ * Функция форматирования строки типа "2013-12-19" в строку типа "19.12.2013"
+ * @param inStr - строка
+ * @returns {string}
+ */
+export function toDDMMYYY(inStr: string) {
+  let outStr = inStr.slice(8, 10) + '.' + inStr.slice(5, 7) + '.' + inStr.slice(0, 4);
+  return outStr;
+}
