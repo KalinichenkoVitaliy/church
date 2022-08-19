@@ -88,3 +88,5 @@ export function PageContacts() {
     </div>
   );
 }
+
+export default PageContacts;

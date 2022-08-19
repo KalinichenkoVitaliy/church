@@ -3,14 +3,14 @@ import React from 'react';
 import styles from './yandexMap.module.scss';
 
 // Скрипт подключение API Яндекс-карты
-// const connectApiYandexMap = () => {
-//   const scriptConnectMap = document.createElement('script');
-//   scriptConnectMap.id = 'connectYandexMap';
-//   scriptConnectMap.type = 'text/javascript';
-//   scriptConnectMap.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU';
-//   document.head.append(scriptConnectMap);
-// };
-// connectApiYandexMap();
+const connectApiYandexMap = () => {
+  const scriptConnectMap = document.createElement('script');
+  scriptConnectMap.id = 'connectYandexMap';
+  scriptConnectMap.type = 'text/javascript';
+  scriptConnectMap.src = 'https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU';
+  document.head.append(scriptConnectMap);
+};
+if (!document.getElementById('connectYandexMap')) connectApiYandexMap();
 
 // Скрипт отрисовки карты в элементе DOM id='map'
 const initYandexMap = () => {

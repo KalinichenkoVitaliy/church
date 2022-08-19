@@ -45,3 +45,5 @@ export function PageLife() {
     </div>
   );
 }
+
+export default PageLife;

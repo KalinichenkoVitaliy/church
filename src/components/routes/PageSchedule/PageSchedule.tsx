@@ -177,3 +177,5 @@ export function PageSchedule() {
     </div>
   );
 }
+
+export default PageSchedule;

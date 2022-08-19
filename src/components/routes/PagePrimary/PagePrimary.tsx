@@ -139,3 +139,5 @@ export function PagePrimary() {
     </div>
   );
 }
+
+export default PagePrimary;

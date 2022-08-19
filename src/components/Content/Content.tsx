@@ -5,14 +5,15 @@ import styles from './content.module.scss';
 
 import { ContentLeft } from '../ContentLeft';
 import { ContentRight } from '../ContentRight';
-import { PagePrimary } from '../routes/PagePrimary';
-import { PageAbout } from '../routes/PageAbout';
-import { PageClergy } from '../routes/PageClergy';
-import { PageSchedule } from '../routes/PageSchedule';
-import { PageLife } from '../routes/PageLife';
-import { PageContacts } from '../routes/PageContacts';
-import { PageNotFound } from '../routes/PageNotFound';
 import { ScrollToTop } from '../../shared/ScrollToTop';
+
+const PagePrimary = React.lazy(() => import('../routes/PagePrimary/PagePrimary'));
+const PageAbout = React.lazy(() => import('../routes/PageAbout/PageAbout'));
+const PageClergy = React.lazy(() => import('../routes/PageClergy/PageClergy'));
+const PageSchedule = React.lazy(() => import('../routes/PageSchedule/PageSchedule'));
+const PageLife = React.lazy(() => import('../routes/PageLife/PageLife'));
+const PageContacts = React.lazy(() => import('../routes/PageContacts/PageContacts'));
+const PageNotFound = React.lazy(() => import('../routes/PageNotFound/PageNotFound'));
 
 export function Content() {
   return (
@@ -21,13 +22,62 @@ export function Content() {
         <ContentLeft>
           <Routes>
             <Route path='/' element={<Navigate to={'/primary'} replace />} />
-            <Route path='/primary' element={<PagePrimary />} />
-            <Route path='/about' element={<PageAbout />} />
-            <Route path='/clergy' element={<PageClergy />} />
-            <Route path='/schedule' element={<PageSchedule />} />
-            <Route path='/life' element={<PageLife />} />
-            <Route path='/contacts' element={<PageContacts />} />
-            <Route path='*' element={<PageNotFound />} />
+            <Route
+              path='/primary'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PagePrimary />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='/about'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PageAbout />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='/clergy'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PageClergy />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='/schedule'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PageSchedule />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='/life'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PageLife />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='/contacts'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PageContacts />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='*'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PageNotFound />
+                </React.Suspense>
+              }
+            />
           </Routes>
         </ContentLeft>
       </section>

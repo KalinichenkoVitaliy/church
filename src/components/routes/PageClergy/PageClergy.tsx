@@ -128,3 +128,5 @@ export function PageClergy() {
     </div>
   );
 }
+
+export default PageClergy;

@@ -25,12 +25,10 @@ export function LifeEvents() {
   const [items, setItems] = React.useState<TNew[]>([]);
 
   React.useEffect(() => {
-    console.log('files:', files);
     const accumItems: TNew[] = [];
 
     const prepareForRender = (curIndex: number, maxIndex: number) => {
       if (curIndex >= maxIndex) {
-        console.log('accumItems', accumItems);
         setItems(
           accumItems.sort((n1, n2) => {
             if (n1.uuid < n2.uuid) return 1;
@@ -45,18 +43,7 @@ export function LifeEvents() {
       axios
         .get(files[i])
         .then((res) => {
-          console.log('axios - res.data', res.data);
           accumItems.push(res.data);
-          // if (i === files.length - 1) {
-          //   console.log('accumItems', accumItems);
-          //   setItems(
-          //     accumItems.sort((n1, n2) => {
-          //       if (n1.uuid < n2.uuid) return 1;
-          //       if (n1.uuid > n2.uuid) return -1;
-          //       return 0;
-          //     })
-          //   );
-          // }
           prepareForRender(i, files.length - 1);
         })
         .catch((err) => {

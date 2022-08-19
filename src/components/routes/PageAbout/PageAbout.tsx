@@ -417,3 +417,5 @@ export function PageAbout() {
     </div>
   );
 }
+
+export default PageAbout;
