@@ -58,9 +58,18 @@ export function LifeEvents() {
   //   //   );
   //   // }, delayTimeout);
   // }, []);
-  console.log('files:', files);
 
-  console.log('LifeEvents');
+  console.log('files:', files);
+  const accumItems: TNew[] = [];
+  for (let i = 0; i < files.length; i++) {
+    axios
+      .get(files[i])
+      .then((res) => {
+        console.log('axios - res.data', res.data);
+        accumItems.push(res.data);
+      })
+      .catch((err) => console.log('axios - err', err));
+  }
 
   return (
     <div className={styles.lifeEvents}>
