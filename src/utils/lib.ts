@@ -67,7 +67,17 @@ export function valueToPhone(inValue: string) {
  * @param inStr - строка
  * @returns {string}
  */
-export function toDDMMYYY(inStr: string) {
+export function toDDMMYYYY(inStr: string) {
   let outStr = inStr.slice(8, 10) + '.' + inStr.slice(5, 7) + '.' + inStr.slice(0, 4);
   return outStr;
+}
+
+/**
+ * Функция преобразования строки типа "2013-12-19" в число типа "20131219"
+ * @param inStr - строка
+ * @returns {number}
+ */
+export function strYYYY_MM_DDToNumber(inStr: string) {
+  const outStr = inStr.replaceAll('-', '');
+  return parseInt(outStr);
 }

@@ -9,7 +9,7 @@ import {
 
 import styles from './lifeEvents.module.scss';
 
-import { toDDMMYYY } from '../../utils/lib';
+import { toDDMMYYYY } from '../../utils/lib';
 import { createNews, disassemblyContent, TNew } from '../../utils/news';
 
 import { EAling, Text } from '../../shared/Text';
@@ -35,7 +35,7 @@ export function LifeEvents() {
                   fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
                   textAling={EAling.justify}
                 >
-                  <strong>{toDDMMYYY(item.uuid) + ' г. - '}</strong>
+                  <strong>{toDDMMYYYY(item.uuid) + ' г. - '}</strong>
                   {item.title}
                 </Text>
               </AccordionItemButton>

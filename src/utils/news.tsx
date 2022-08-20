@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { EAling, Text } from '../shared/Text';
 import { Picture } from '../shared/Picture';
+import { strYYYY_MM_DDToNumber } from './lib';
 
 export type TBloc = {
   tag: string;
@@ -123,11 +124,12 @@ export function createNews({ onReady }: ICreateNews) {
   const accumItems: TNew[] = [];
 
   const saveSortNews = () => {
-    console.log('accumItems:', accumItems);
     onReady(
-      accumItems.sort((n1, n2) => {
-        if (n1.uuid < n2.uuid) return 1;
-        if (n1.uuid > n2.uuid) return -1;
+      accumItems.sort((a, b) => {
+        const n1 = strYYYY_MM_DDToNumber(a.uuid);
+        const n2 = strYYYY_MM_DDToNumber(b.uuid);
+        if (n1 < n2) return 1;
+        if (n1 > n2) return -1;
         return 0;
       })
     );
