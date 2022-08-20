@@ -121,17 +121,23 @@ export const disassemblyContent = (idBloc: string, inBloc: TBloc, index: number)
 export function createNews({ onReady }: ICreateNews) {
   const fileListNews = 'news/news.json';
   let files: string[] = [];
+  let filesLength: number = 0;
   const accumItems: TNew[] = [];
 
   const saveSortNews = () => {
-    const sortNews = accumItems.sort((a, b) => {
-      const n1 = strYYYY_MM_DDToNumber(a.uuid);
-      const n2 = strYYYY_MM_DDToNumber(b.uuid);
-      if (n1 < n2) return 1;
-      if (n1 > n2) return -1;
-      return 0;
-    });
-    onReady(sortNews);
+    const intervalId = setInterval(() => {
+      if (accumItems.length === filesLength) {
+        clearInterval(intervalId);
+        const sortNews = accumItems.sort((a, b) => {
+          const n1 = strYYYY_MM_DDToNumber(a.uuid);
+          const n2 = strYYYY_MM_DDToNumber(b.uuid);
+          if (n1 < n2) return 1;
+          if (n1 > n2) return -1;
+          return 0;
+        });
+        onReady(sortNews);
+      }
+    }, 100);
   };
 
   const readAllNews = () => {
@@ -147,6 +153,7 @@ export function createNews({ onReady }: ICreateNews) {
         })
         // eslint-disable-next-line no-loop-func
         .catch((err) => {
+          filesLength--;
           console.log(`Ошибка получения данных из файла "${files[i]}":`, err);
           if (err.config.url === nameLastFileNews) saveSortNews();
         });
@@ -158,6 +165,7 @@ export function createNews({ onReady }: ICreateNews) {
       .get(fileListNews)
       .then((res) => {
         files = res.data;
+        filesLength = files.length;
         readAllNews();
       })
       .catch((err) => {
