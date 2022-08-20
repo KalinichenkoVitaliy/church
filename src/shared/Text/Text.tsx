@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import styles from './text.module.scss';
 
-type TFontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+export type TFontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 export type TFontSize = { size?: number; lineHeight?: string; weight?: TFontWeight };
 export enum EColor {
   fullblack = '#000000',
@@ -63,7 +63,7 @@ export enum ECursor {
   inherit = 'inherit',
 }
 
-interface ITextProps {
+export interface ITextProps {
   As?: 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div';
   children?: React.ReactNode;
   font?: TFontSize;

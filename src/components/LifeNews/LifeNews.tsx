@@ -7,14 +7,14 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion';
 
-import styles from './lifeEvents.module.scss';
+import styles from './lifeNews.module.scss';
 
 import { toDDMMYYYY } from '../../utils/lib';
 import { createNews, disassemblyContent, TNew } from '../../utils/news';
 
-import { EAling, Text } from '../../shared/Text';
+import { TextSpanNews } from '../../utils/samples';
 
-export function LifeEvents() {
+export function LifeNews() {
   const [items, setItems] = React.useState<TNew[]>([]);
 
   React.useEffect(() => {
@@ -22,22 +22,16 @@ export function LifeEvents() {
   }, []);
 
   return (
-    <div className={styles.lifeEvents}>
+    <div className={styles.lifeNews}>
       <Accordion allowMultipleExpanded allowZeroExpanded className={styles.accordion}>
         {items.map((item) => (
           <AccordionItem key={item.uuid} className={styles.accordion__item}>
             <AccordionItemHeading>
               <AccordionItemButton className={styles.accordion__button}>
-                <Text
-                  fontMobile={{ size: 13, lineHeight: '17px', weight: 400 }}
-                  fontTablet={{ size: 14, lineHeight: '18px', weight: 400 }}
-                  fontLaptop={{ size: 14, lineHeight: '18px', weight: 400 }}
-                  fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
-                  textAling={EAling.justify}
-                >
+                <TextSpanNews>
                   <strong>{toDDMMYYYY(item.uuid) + ' г. - '}</strong>
                   {item.title}
-                </Text>
+                </TextSpanNews>
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel className={styles.accordion__panel}>

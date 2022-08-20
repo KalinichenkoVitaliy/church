@@ -15,7 +15,7 @@ export type TImageSize = { width: number | string; height: number | string };
 export type TMagrin = number | string;
 export type TAling = 'left' | 'right' | 'none' | 'inherit';
 
-interface IPictureProps {
+export interface IPictureProps {
   name: string;
   alt?: string;
   size?: TImageSize;

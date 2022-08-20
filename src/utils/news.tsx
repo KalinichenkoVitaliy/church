@@ -1,10 +1,8 @@
-/* eslint-disable no-cond-assign */
 import React from 'react';
 import axios from 'axios';
 
-import { EAling, Text } from '../shared/Text';
-import { Picture } from '../shared/Picture';
 import { strYYYY_MM_DDToNumber } from './lib';
+import { PictureMulti100TB, PictureOnce100TB, TextIndentPNews, TextPNews, TextSpanNews } from './samples';
 
 export type TBloc = {
   tag: string;
@@ -21,7 +19,8 @@ export interface ICreateNews {
 
 /**
  * Функция разбора блоковых тегов из json-файла и возвращения соответствующих jsx-элементов
- * @param inBloc: TBloc - полученный блоковый тег для разбора
+ * @param blocId: string - id массива блоковых тегов для построения пути до файлов изображений
+ * @param blocData: TBloc - полученный блоковый тег для разбора
  * @param index: number - индекс для уникальности возвращаемого jsx-элемента
  * @returns - jsx-элемент
  *
@@ -31,87 +30,29 @@ export interface ICreateNews {
  * @param span - не форматированный текст
  * @param p - абзаца форматированного текста
  * @param indent_p - абзаца форматированного текста с отступом на первой строке
+ * @param picture_multi - комплект изображений для mobile, tablet, laptop и desktop
+ *                        на всю ширину экрана с отступами сверху и снизу
+ * @param picture_once - единственное изображение для mobile, tablet, laptop и desktop
+ *                       на всю ширину экрана с отступами сверху и снизу
  */
-export const disassemblyContent = (idBloc: string, inBloc: TBloc, index: number) => {
-  switch (inBloc.tag) {
+export const disassemblyContent = (blocId: string, blocData: TBloc, index: number) => {
+  switch (blocData.tag) {
     case 'newline':
       return <br key={index} />;
     case 'space':
       return <span key={index}>&emsp;</span>;
     case 'span':
-      return (
-        <Text
-          key={index}
-          As='span'
-          fontMobile={{ size: 13, lineHeight: '17px', weight: 400 }}
-          fontTablet={{ size: 14, lineHeight: '18px', weight: 400 }}
-          fontLaptop={{ size: 14, lineHeight: '18px', weight: 400 }}
-          fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
-          textAling={EAling.justify}
-        >
-          {inBloc.value}
-        </Text>
-      );
+      return <TextSpanNews key={index}> {blocData.value}</TextSpanNews>;
     case 'p':
-      return (
-        <Text
-          key={index}
-          As='p'
-          fontMobile={{ size: 13, lineHeight: '17px', weight: 400 }}
-          fontTablet={{ size: 14, lineHeight: '18px', weight: 400 }}
-          fontLaptop={{ size: 14, lineHeight: '18px', weight: 400 }}
-          fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
-          textAling={EAling.justify}
-        >
-          {inBloc.value}
-        </Text>
-      );
+      return <TextPNews key={index}>{blocData.value}</TextPNews>;
     case 'indent_p':
-      return (
-        <Text
-          key={index}
-          As='p'
-          fontMobile={{ size: 13, lineHeight: '17px', weight: 400 }}
-          fontTablet={{ size: 14, lineHeight: '18px', weight: 400 }}
-          fontLaptop={{ size: 14, lineHeight: '18px', weight: 400 }}
-          fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
-          indent
-          textAling={EAling.justify}
-        >
-          {inBloc.value}
-        </Text>
-      );
-    case 'picture':
-      const namePicture = `news/${idBloc}/${inBloc.value}`;
-      return (
-        <Picture
-          key={index}
-          name={namePicture}
-          alt={`Фото /${namePicture}`}
-          sizeMobile={{ width: '100%', height: 'auto' }}
-          sizeTablet={{ width: '100%', height: 'auto' }}
-          sizeLaptop={{ width: '100%', height: 'auto' }}
-          sizeDesktop={{ width: '100%', height: 'auto' }}
-          marginMobile='4px 0 8px 0'
-          marginTablet='4px 0 8px 0'
-          marginLaptop='4px 0 10px 0'
-          marginDesktop='5px 0 10px 0'
-        />
-      );
-    case 'picture-once':
-      const namePictureOnce = `news/${idBloc}/${inBloc.value}`;
-      return (
-        <Picture
-          key={index}
-          name={namePictureOnce}
-          alt={`Фото /${namePictureOnce}`}
-          size={{ width: '100%', height: 'auto' }}
-          marginMobile='4px 0 8px 0'
-          marginTablet='4px 0 8px 0'
-          marginLaptop='4px 0 10px 0'
-          marginDesktop='5px 0 10px 0'
-        />
-      );
+      return <TextIndentPNews key={index}>{blocData.value}</TextIndentPNews>;
+    case 'picture_multi':
+      const namePictureMulti = `news/${blocId}/${blocData.value}`;
+      return <PictureMulti100TB key={index} name={namePictureMulti} alt={`Фото /${namePictureMulti}`} />;
+    case 'picture_once':
+      const namePictureOnce = `news/${blocId}/${blocData.value}`;
+      return <PictureOnce100TB key={index} name={namePictureOnce} alt={`Фото /${namePictureOnce}`} />;
 
     default:
       return null;
@@ -143,9 +84,10 @@ export function createNews({ onReady }: ICreateNews) {
   const readAllNews = () => {
     let nameLastFileNews = '';
     for (let i = 0; i < files.length; i++) {
-      if (i >= files.length - 1) nameLastFileNews = files[i];
+      const nameFileNew = `news/${files[i]}/${files[i]}.json`;
+      if (i >= files.length - 1) nameLastFileNews = nameFileNew;
       axios
-        .get(files[i])
+        .get(nameFileNew)
         // eslint-disable-next-line no-loop-func
         .then((res) => {
           accumItems.push(res.data);
@@ -154,7 +96,7 @@ export function createNews({ onReady }: ICreateNews) {
         // eslint-disable-next-line no-loop-func
         .catch((err) => {
           filesLength--;
-          console.log(`Ошибка получения данных из файла "${files[i]}":`, err);
+          console.log(`Ошибка получения данных из файла "${err.config.url}":`, err);
           if (err.config.url === nameLastFileNews) saveSortNews();
         });
     }
