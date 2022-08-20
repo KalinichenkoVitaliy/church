@@ -124,15 +124,14 @@ export function createNews({ onReady }: ICreateNews) {
   const accumItems: TNew[] = [];
 
   const saveSortNews = () => {
-    onReady(
-      accumItems.sort((a, b) => {
-        const n1 = strYYYY_MM_DDToNumber(a.uuid);
-        const n2 = strYYYY_MM_DDToNumber(b.uuid);
-        if (n1 < n2) return 1;
-        if (n1 > n2) return -1;
-        return 0;
-      })
-    );
+    const sortNews = accumItems.sort((a, b) => {
+      const n1 = strYYYY_MM_DDToNumber(a.uuid);
+      const n2 = strYYYY_MM_DDToNumber(b.uuid);
+      if (n1 < n2) return 1;
+      if (n1 > n2) return -1;
+      return 0;
+    });
+    onReady(sortNews);
   };
 
   const readAllNews = () => {
