@@ -9,8 +9,8 @@ import {
 
 import styles from './lifeNews.module.scss';
 
-import { toDDMMYYYY } from '../../utils/lib';
-import { createNews, disassemblyContent, TNew } from '../../utils/news';
+import { strYYYY_MM_DDtoDDMMYYYY } from '../../utils/lib';
+import { createNews, disassemblyContent, TNew } from '../../utils/apiNews';
 
 import { TextSpanNews } from '../../utils/samples';
 
@@ -29,7 +29,8 @@ export function LifeNews() {
             <AccordionItemHeading>
               <AccordionItemButton className={styles.accordion__button}>
                 <TextSpanNews>
-                  <strong>{toDDMMYYYY(item.uuid) + ' г. - '}</strong>
+                  <strong>{strYYYY_MM_DDtoDDMMYYYY(item.uuid) + ' г.'}</strong>
+                  &ensp;&ndash;&ensp;
                   {item.title}
                 </TextSpanNews>
               </AccordionItemButton>

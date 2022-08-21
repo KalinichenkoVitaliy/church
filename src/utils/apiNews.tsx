@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { strYYYY_MM_DDToNumber } from './lib';
+import { isFolderNews, strYYYY_MM_DDtoNumber } from './lib';
 import { PictureMulti100TB, PictureOnce100TB, TextIndentPNews, TextPNews, TextSpanNews } from './samples';
 
 export type TBloc = {
@@ -60,60 +60,61 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
 };
 
 export function createNews({ onReady }: ICreateNews) {
-  const fileListNews = 'news/news.json';
-  let files: string[] = [];
-  let filesLength: number = 0;
-  const accumItems: TNew[] = [];
+  const folderNews = 'news/';
+  let news: string[] = [];
+  let newsLength: number = 0;
+  const accumNews: TNew[] = [];
 
   const saveSortNews = () => {
     const intervalId = setInterval(() => {
-      if (accumItems.length === filesLength) {
+      if (accumNews.length === newsLength) {
         clearInterval(intervalId);
-        const sortNews = accumItems.sort((a, b) => {
-          const n1 = strYYYY_MM_DDToNumber(a.uuid);
-          const n2 = strYYYY_MM_DDToNumber(b.uuid);
-          if (n1 < n2) return 1;
-          if (n1 > n2) return -1;
-          return 0;
-        });
-        onReady(sortNews);
+        onReady(
+          accumNews.sort((a, b) => {
+            const n1 = strYYYY_MM_DDtoNumber(a.uuid);
+            const n2 = strYYYY_MM_DDtoNumber(b.uuid);
+            if (n1 < n2) return 1;
+            if (n1 > n2) return -1;
+            return 0;
+          })
+        );
       }
     }, 100);
   };
 
   const readAllNews = () => {
     let nameLastFileNews = '';
-    for (let i = 0; i < files.length; i++) {
-      const nameFileNew = `news/${files[i]}/${files[i]}.json`;
-      if (i >= files.length - 1) nameLastFileNews = nameFileNew;
+    for (let i = 0; i < news.length; i++) {
+      const nameFileNew = `news/${news[i]}/${news[i]}.json`;
+      if (i >= news.length - 1) nameLastFileNews = nameFileNew;
       axios
         .get(nameFileNew)
         // eslint-disable-next-line no-loop-func
         .then((res) => {
-          accumItems.push(res.data);
+          accumNews.push(res.data);
           if (res.config.url === nameLastFileNews) saveSortNews();
         })
         // eslint-disable-next-line no-loop-func
         .catch((err) => {
-          filesLength--;
+          newsLength--;
           console.log(`Ошибка получения данных из файла "${err.config.url}":`, err);
           if (err.config.url === nameLastFileNews) saveSortNews();
         });
     }
   };
 
-  const getListNews = () => {
+  const getFoldersNews = () => {
     axios
-      .get(fileListNews)
+      .get(folderNews)
       .then((res) => {
-        files = res.data;
-        filesLength = files.length;
+        news = res.data.filter((nameFolder: string) => isFolderNews(nameFolder));
+        newsLength = news.length;
         readAllNews();
       })
       .catch((err) => {
-        console.log(`Ошибка получения данных из файла "${fileListNews}":`, err);
+        console.log(`Ошибка получения списка новостных папок из папки "news/":`, err);
       });
   };
 
-  getListNews();
+  getFoldersNews();
 }

@@ -65,9 +65,9 @@ export function valueToPhone(inValue: string) {
 /**
  * Функция форматирования строки типа "2013-12-19" в строку типа "19.12.2013"
  * @param inStr - строка
- * @returns {string}
+ * @returns string
  */
-export function toDDMMYYYY(inStr: string) {
+export function strYYYY_MM_DDtoDDMMYYYY(inStr: string) {
   let outStr = inStr.slice(8, 10) + '.' + inStr.slice(5, 7) + '.' + inStr.slice(0, 4);
   return outStr;
 }
@@ -75,9 +75,19 @@ export function toDDMMYYYY(inStr: string) {
 /**
  * Функция преобразования строки типа "2013-12-19" в число типа "20131219"
  * @param inStr - строка
- * @returns {number}
+ * @returns number
  */
-export function strYYYY_MM_DDToNumber(inStr: string) {
+export function strYYYY_MM_DDtoNumber(inStr: string) {
   const outStr = inStr.replaceAll('-', '');
   return parseInt(outStr);
+}
+
+/**
+ * Функция проверки получаемой строки на соответствие именования папки новости
+ * @param inStr
+ * @returns boolean
+ */
+export function isFolderNews(inStr: string) {
+  const maskNameFolderNews = /^\d{4}\-\d{2}\-\d{2}$/;
+  return inStr.match(maskNameFolderNews) !== null;
 }
