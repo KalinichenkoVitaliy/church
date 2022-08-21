@@ -60,7 +60,7 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
 };
 
 export function createNews({ onReady }: ICreateNews) {
-  const folderNews = 'news/';
+  const folderNews = '/news/';
   let news: string[] = [];
   let newsLength: number = 0;
   const accumNews: TNew[] = [];
