@@ -107,7 +107,15 @@ export function createNews({ onReady }: ICreateNews) {
     axios
       .get(folderNews)
       .then((res) => {
-        news = res.data.filter((nameFolder: string) => isFolderNews(nameFolder));
+        console.log('res:', res);
+        console.log('res.data:', res.data);
+
+        news = res.data.filter((nameFolder: string) => {
+          console.log('nameFolder:', nameFolder);
+          return isFolderNews(nameFolder);
+        });
+        console.log('news:', news);
+
         newsLength = news.length;
         readAllNews();
       })
