@@ -18,6 +18,7 @@ export type TAling = 'left' | 'right' | 'none' | 'inherit';
 export interface IPictureProps {
   name: string;
   alt?: string;
+  once?: boolean;
   size?: TImageSize;
   sizeMobile?: TImageSize;
   sizeTablet?: TImageSize;
@@ -38,6 +39,7 @@ export interface IPictureProps {
 export function Picture({
   name,
   alt = '',
+  once = false,
   size,
   sizeMobile,
   sizeTablet,
@@ -109,7 +111,7 @@ export function Picture({
     if (alingDesktop) imageAling = alingDesktop;
   }
 
-  imageSrc = `${name}${endingImgName}.webp`;
+  imageSrc = `${name}${once ? '' : endingImgName}.webp`;
 
   return (
     <LazyLoadImage

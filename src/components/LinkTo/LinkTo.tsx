@@ -5,7 +5,7 @@ import styles from './linkTo.module.scss';
 
 import { EColor, ECursor, EDecoration, TFontSize, Text } from '../../shared/Text';
 
-interface ILinkToProps {
+export interface ILinkToProps {
   As?: 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div';
   goTo: string;
   children?: React.ReactNode;

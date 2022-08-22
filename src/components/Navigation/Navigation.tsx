@@ -3,11 +3,12 @@ import classNames from 'classnames';
 
 import styles from './navigation.module.scss';
 
-import { LinkTo } from '../LinkTo';
+import { DoLinkTo } from '../../utils/samples';
 
 type TState = {
   primary: boolean;
   about: boolean;
+  sanctitys: boolean;
   clergy: boolean;
   schedule: boolean;
   life: boolean;
@@ -16,6 +17,7 @@ type TState = {
 const cleanState: TState = {
   primary: false,
   about: false,
+  sanctitys: false,
   clergy: false,
   schedule: false,
   life: false,
@@ -38,6 +40,7 @@ export function Navigation() {
 
   const classPrimary = classNames(styles.animeLink, { [styles.activeLink]: activeLink.primary });
   const classAbout = classNames(styles.animeLink, { [styles.activeLink]: activeLink.about });
+  const classSanctitys = classNames(styles.animeLink, { [styles.activeLink]: activeLink.sanctitys });
   const classClergy = classNames(styles.animeLink, { [styles.activeLink]: activeLink.clergy });
   const classSchedule = classNames(styles.animeLink, { [styles.activeLink]: activeLink.schedule });
   const classLife = classNames(styles.animeLink, { [styles.activeLink]: activeLink.life });
@@ -45,96 +48,62 @@ export function Navigation() {
 
   return (
     <nav className={styles.navigation}>
-      <LinkTo
+      <DoLinkTo
         goTo='/primary'
-        fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
-        fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
-        upperCase
         title='На главнуюю страницу'
         parentClass={classPrimary}
-        onClick={() => {
-          handleClickOnLink('primary');
-        }}
+        onClick={() => handleClickOnLink('primary')}
       >
         Главная
-      </LinkTo>
-      <LinkTo
+      </DoLinkTo>
+      <DoLinkTo
         goTo='/about'
-        fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
-        fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
-        upperCase
         title='Подробнее о храме'
         parentClass={classAbout}
-        onClick={() => {
-          handleClickOnLink('about');
-        }}
+        onClick={() => handleClickOnLink('about')}
       >
         О храме
-      </LinkTo>
-      <LinkTo
+      </DoLinkTo>
+      <DoLinkTo
+        goTo='/sanctitys'
+        title='Подробнее о святынях храма'
+        parentClass={classSanctitys}
+        onClick={() => handleClickOnLink('sanctitys')}
+      >
+        Святыни храма
+      </DoLinkTo>
+      <DoLinkTo
         goTo='/clergy'
-        fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
-        fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
-        upperCase
         title='Подробнее о духовенстве'
         parentClass={classClergy}
-        onClick={() => {
-          handleClickOnLink('clergy');
-        }}
+        onClick={() => handleClickOnLink('clergy')}
       >
         Духовенство
-      </LinkTo>
-      <LinkTo
+      </DoLinkTo>
+      <DoLinkTo
         goTo='/schedule'
-        fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
-        fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
-        upperCase
         title='Подробнее о расписании богослужений'
         parentClass={classSchedule}
-        onClick={() => {
-          handleClickOnLink('schedule');
-        }}
+        onClick={() => handleClickOnLink('schedule')}
       >
         Расписание богослужений
-      </LinkTo>
-      <LinkTo
+      </DoLinkTo>
+      <DoLinkTo
         goTo='/life'
-        fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
-        fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
-        upperCase
         title='Подробнее о жизни прихода и его событиях'
         parentClass={classLife}
-        onClick={() => {
-          handleClickOnLink('life');
-        }}
+        onClick={() => handleClickOnLink('life')}
       >
         Приходская жизнь
-      </LinkTo>
-      <LinkTo
+      </DoLinkTo>
+      <DoLinkTo
         goTo='/contacts'
-        fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
-        fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
-        fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
-        upperCase
         title='Контакты, адреса и обратная связь'
         parentClass={classContacts}
-        onClick={() => {
-          handleClickOnLink('contacts');
-        }}
+        onClick={() => handleClickOnLink('contacts')}
       >
         Контакты
-      </LinkTo>
+      </DoLinkTo>
     </nav>
   );
 }

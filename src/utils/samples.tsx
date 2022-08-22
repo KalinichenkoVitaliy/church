@@ -1,6 +1,25 @@
 import { EAling, ITextProps, Text } from '../shared/Text';
 import { Break } from '../shared/Break';
+import { ILinkToProps, LinkTo } from '../components/LinkTo';
 import { IPictureProps, Picture } from '../shared/Picture';
+
+export function DoLinkTo({ goTo = `/`, children, title, parentClass, onClick }: ILinkToProps) {
+  return (
+    <LinkTo
+      goTo={goTo}
+      fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
+      fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
+      fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
+      fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
+      upperCase
+      title={title}
+      parentClass={parentClass}
+      onClick={onClick}
+    >
+      {children}
+    </LinkTo>
+  );
+}
 
 export function TextH2({ children }: ITextProps) {
   return (
@@ -107,6 +126,18 @@ export function TextIndentPNews({ children }: ITextProps) {
   );
 }
 
+export function BreakAfterH2() {
+  return <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />;
+}
+
+export function BreakAfterH3() {
+  return <Break stepMobile={2} stepTablet={4} stepLaptop={8} stepDesktop={10} top />;
+}
+
+export function BreakInterP() {
+  return <Break stepMobile={8} stepTablet={10} stepLaptop={14} stepDesktop={18} top />;
+}
+
 export function PictureMulti100TB({ name, alt }: IPictureProps) {
   return (
     <Picture
@@ -129,6 +160,7 @@ export function PictureOnce100TB({ name, alt }: IPictureProps) {
     <Picture
       name={name}
       alt={alt}
+      once
       size={{ width: '100%', height: 'auto' }}
       marginMobile='4px 0 8px 0'
       marginTablet='4px 0 8px 0'
@@ -179,10 +211,10 @@ export function PictureMultiPhoto({ name, alt }: IPictureProps) {
     <Picture
       name={name}
       alt={alt}
-      sizeMobile={{ width: 100, height: 150 }}
-      sizeTablet={{ width: 120, height: 180 }}
-      sizeLaptop={{ width: 150, height: 225 }}
-      sizeDesktop={{ width: 200, height: 300 }}
+      sizeMobile={{ width: 100, height: 'auto' }}
+      sizeTablet={{ width: 120, height: 'auto' }}
+      sizeLaptop={{ width: 150, height: 'auto' }}
+      sizeDesktop={{ width: 200, height: 'auto' }}
       marginMobile='0 0 0 10px'
       marginTablet='0 0 0 15px'
       marginLaptop='0 0 5px 20px'
@@ -192,14 +224,21 @@ export function PictureMultiPhoto({ name, alt }: IPictureProps) {
   );
 }
 
-export function BreakAfterH2() {
-  return <Break stepMobile={12} stepTablet={14} stepLaptop={18} stepDesktop={22} top />;
-}
-
-export function BreakAfterH3() {
-  return <Break stepMobile={2} stepTablet={4} stepLaptop={8} stepDesktop={10} top />;
-}
-
-export function BreakInterP() {
-  return <Break stepMobile={8} stepTablet={10} stepLaptop={14} stepDesktop={18} top />;
+export function PictureOncePhoto({ name, alt }: IPictureProps) {
+  return (
+    <Picture
+      name={name}
+      alt={alt}
+      once
+      sizeMobile={{ width: 100, height: 'auto' }}
+      sizeTablet={{ width: 120, height: 'auto' }}
+      sizeLaptop={{ width: 150, height: 'auto' }}
+      sizeDesktop={{ width: 200, height: 'auto' }}
+      marginMobile='0 0 0 10px'
+      marginTablet='0 0 0 15px'
+      marginLaptop='0 0 5px 20px'
+      marginDesktop='0 0 5px 30px'
+      aling='right'
+    />
+  );
 }

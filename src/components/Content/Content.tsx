@@ -9,6 +9,7 @@ import { ScrollToTop } from '../../shared/ScrollToTop';
 
 const PagePrimary = React.lazy(() => import('../routes/PagePrimary/PagePrimary'));
 const PageAbout = React.lazy(() => import('../routes/PageAbout/PageAbout'));
+const PageSanctitys = React.lazy(() => import('../routes/PageSanctitys/PageSanctitys'));
 const PageClergy = React.lazy(() => import('../routes/PageClergy/PageClergy'));
 const PageSchedule = React.lazy(() => import('../routes/PageSchedule/PageSchedule'));
 const PageLife = React.lazy(() => import('../routes/PageLife/PageLife'));
@@ -35,6 +36,14 @@ export function Content() {
               element={
                 <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
                   <PageAbout />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='/sanctitys'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                  <PageSanctitys />
                 </React.Suspense>
               }
             />
