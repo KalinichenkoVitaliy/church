@@ -60,7 +60,7 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
 };
 
 export function createNews({ onReady }: ICreateNews) {
-  const folderNews = '/news/';
+  const foldersNews = 'news/news.json';
   let news: string[] = [];
   let newsLength: number = 0;
   const accumNews: TNew[] = [];
@@ -105,22 +105,18 @@ export function createNews({ onReady }: ICreateNews) {
 
   const getFoldersNews = () => {
     axios
-      .get(folderNews)
+      .get(foldersNews)
       .then((res) => {
-        console.log('res:', res);
-        console.log('res.data:', res.data);
-
-        news = res.data.filter((nameFolder: string) => {
-          console.log('nameFolder:', nameFolder);
-          return isFolderNews(nameFolder);
-        });
-        console.log('news:', news);
-
+        if (res.data.length > 0)
+          news = res.data.filter((nameFolder: string) => {
+            return isFolderNews(nameFolder);
+          });
         newsLength = news.length;
         readAllNews();
       })
       .catch((err) => {
-        console.log(`Ошибка получения списка новостных папок из папки "news/":`, err);
+        // console.log(`Ошибка получения списка новостных папок из папки "${foldersNews}":`, err);
+        console.log(`Ошибка получения списка новостных папок из файла "${foldersNews}":`, err);
       });
   };
 

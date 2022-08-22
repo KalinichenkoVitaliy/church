@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { send } from 'emailjs-com';
-import apiKeys from '../../utils/apiEmail';
+import apiKeys from '../../utils/apiMail';
 
 import styles from './formFeedback.module.scss';
 
