@@ -21,7 +21,9 @@ export function LifeNews() {
     createNews({ onReady: setItems });
   }, []);
 
-  return (
+  return items.length === 0 ? (
+    <h3>Идёт загрузка событий ...</h3>
+  ) : (
     <div className={styles.lifeNews}>
       <Accordion allowMultipleExpanded allowZeroExpanded className={styles.accordion}>
         {items.map((item) => (
