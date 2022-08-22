@@ -78,8 +78,8 @@ export function strYYYY_MM_DDtoDDMMYYYY(inStr: string) {
  * @returns number
  */
 export function strYYYY_MM_DDtoNumber(inStr: string) {
-  const outStr = inStr.replaceAll('-', '');
-  return parseInt(outStr);
+  const outStr = inStr.replaceAll('-', '').replaceAll('_', '.');
+  return Number(outStr);
 }
 
 /**
@@ -89,6 +89,6 @@ export function strYYYY_MM_DDtoNumber(inStr: string) {
  */
 export function isFolderNews(inStr: string) {
   // eslint-disable-next-line no-useless-escape
-  const maskNameFolderNews = /^\d{4}\-\d{2}\-\d{2}$/;
+  const maskNameFolderNews = /^\d{4}\-\d{2}\-\d{2}\_{0,1}\d{0,}$/;
   return inStr.match(maskNameFolderNews) !== null;
 }
