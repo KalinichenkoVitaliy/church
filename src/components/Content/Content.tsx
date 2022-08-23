@@ -26,7 +26,7 @@ export function Content() {
             <Route
               path='/primary'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PagePrimary />
                 </React.Suspense>
               }
@@ -34,7 +34,7 @@ export function Content() {
             <Route
               path='/about'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageAbout />
                 </React.Suspense>
               }
@@ -42,7 +42,7 @@ export function Content() {
             <Route
               path='/sanctitys'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageSanctitys />
                 </React.Suspense>
               }
@@ -50,7 +50,7 @@ export function Content() {
             <Route
               path='/clergy'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageClergy />
                 </React.Suspense>
               }
@@ -58,7 +58,7 @@ export function Content() {
             <Route
               path='/schedule'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageSchedule />
                 </React.Suspense>
               }
@@ -66,7 +66,7 @@ export function Content() {
             <Route
               path='/life'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageLife />
                 </React.Suspense>
               }
@@ -74,7 +74,7 @@ export function Content() {
             <Route
               path='/contacts'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageContacts />
                 </React.Suspense>
               }
@@ -82,7 +82,7 @@ export function Content() {
             <Route
               path='*'
               element={
-                <React.Suspense fallback={<h2>Идёт загрузка ...</h2>}>
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageNotFound />
                 </React.Suspense>
               }
