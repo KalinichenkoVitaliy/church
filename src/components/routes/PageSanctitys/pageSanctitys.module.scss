@@ -1,3 +1,9 @@
 .pageSanctitys {
   width: 100%;
 }
+
+.sanctitys {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

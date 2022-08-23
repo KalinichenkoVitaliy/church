@@ -9,8 +9,12 @@
     border-top: 1px solid var(--white);
   }
   &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
     width: 100%;
-    padding: 8px 5px 8px 8px;
+    padding: 8px 10px 8px 8px;
     border: none;
     border-radius: 3px;
     text-align: left;
@@ -26,25 +30,24 @@
     &[aria-selected='true'] {
       background-color: var(--blue82);
     }
-    &:before {
+    &:after {
       content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      margin-right: 10px;
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
       border-right: 2px solid currentColor;
       border-bottom: 2px solid currentColor;
       transform: rotate(-45deg);
       @include animeTransition(transform, 0.4s, ease-in-out);
     }
-    &[aria-expanded='true']::before,
-    &[aria-selected='true']::before {
+    &[aria-expanded='true']::after,
+    &[aria-selected='true']::after {
       transform: rotate(45deg);
     }
   }
   &__panel {
     padding: 5px 5px 10px 15px;
-    animation: fadein 0.4s ease-in-out;
+    animation: showPanel 0.4s ease-in-out;
 
     & [hidden] {
       display: none;
@@ -52,7 +55,7 @@
   }
 }
 
-@keyframes fadein {
+@keyframes showPanel {
   0% {
     opacity: 0;
   }

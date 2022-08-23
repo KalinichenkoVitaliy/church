@@ -12,7 +12,7 @@ import styles from './lifeNews.module.scss';
 import { strYYYY_MM_DDtoDDMMYYYY } from '../../utils/lib';
 import { createNews, disassemblyContent, TNew } from '../../utils/apiNews';
 
-import { TextSpanNews } from '../../utils/samples';
+import { TextPNews } from '../../utils/samples';
 
 export function LifeNews() {
   const [items, setItems] = React.useState<TNew[]>([]);
@@ -30,11 +30,11 @@ export function LifeNews() {
           <AccordionItem key={item.uuid} className={styles.accordion__item}>
             <AccordionItemHeading>
               <AccordionItemButton className={styles.accordion__button}>
-                <TextSpanNews>
+                <TextPNews>
                   <strong>{strYYYY_MM_DDtoDDMMYYYY(item.uuid) + ' г.'}</strong>
                   &ensp;&ndash;&ensp;
                   {item.title}
-                </TextSpanNews>
+                </TextPNews>
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel className={styles.accordion__panel}>

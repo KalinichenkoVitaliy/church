@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import classNames from 'classnames';
 
 import styles from './picture.module.scss';
 
@@ -34,6 +35,7 @@ export interface IPictureProps {
   alingTablet?: TAling;
   alingLaptop?: TAling;
   alingDesktop?: TAling;
+  parentClass?: string;
 }
 
 export function Picture({
@@ -55,6 +57,7 @@ export function Picture({
   alingTablet,
   alingLaptop,
   alingDesktop,
+  parentClass,
 }: IPictureProps) {
   const isMobile = useMediaQuery({ query: `(max-width: ${bpMaxWidthMobile})` });
   const isTablet = useMediaQuery({ query: `(min-width: ${bpMinWidthTablet}) and (max-width: ${bpMaxWidthTablet})` });
@@ -113,9 +116,11 @@ export function Picture({
 
   imageSrc = `${name}${once ? '' : endingImgName}.webp`;
 
+  const classes = classNames(styles.picture, parentClass);
+
   return (
     <LazyLoadImage
-      className={styles.picture}
+      className={classes}
       src={imageSrc}
       alt={alt}
       width={imageWidth}

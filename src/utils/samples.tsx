@@ -138,7 +138,7 @@ export function BreakInterP() {
   return <Break stepMobile={8} stepTablet={10} stepLaptop={14} stepDesktop={18} top />;
 }
 
-export function PictureMulti100TB({ name, alt }: IPictureProps) {
+export function PictureMulti100TB({ name, alt, parentClass }: IPictureProps) {
   return (
     <Picture
       name={name}
@@ -151,11 +151,12 @@ export function PictureMulti100TB({ name, alt }: IPictureProps) {
       marginTablet='4px 0 8px 0'
       marginLaptop='5px 0 10px 0'
       marginDesktop='5px 0 10px 0'
+      parentClass={parentClass}
     />
   );
 }
 
-export function PictureOnce100TB({ name, alt }: IPictureProps) {
+export function PictureOnce100TB({ name, alt, parentClass }: IPictureProps) {
   return (
     <Picture
       name={name}
@@ -166,11 +167,12 @@ export function PictureOnce100TB({ name, alt }: IPictureProps) {
       marginTablet='4px 0 8px 0'
       marginLaptop='5px 0 10px 0'
       marginDesktop='5px 0 10px 0'
+      parentClass={parentClass}
     />
   );
 }
 
-export function PictureMultiLeft49TB({ name, alt }: IPictureProps) {
+export function PictureMultiLeft49TB({ name, alt, parentClass }: IPictureProps) {
   return (
     <Picture
       name={name}
@@ -184,11 +186,12 @@ export function PictureMultiLeft49TB({ name, alt }: IPictureProps) {
       marginLaptop='5px 0 10px 0'
       marginDesktop='5px 0 10px 0'
       aling='left'
+      parentClass={parentClass}
     />
   );
 }
 
-export function PictureMultiRight49TB({ name, alt }: IPictureProps) {
+export function PictureMultiRight49TB({ name, alt, parentClass }: IPictureProps) {
   return (
     <Picture
       name={name}
@@ -202,11 +205,12 @@ export function PictureMultiRight49TB({ name, alt }: IPictureProps) {
       marginLaptop='5px 0 10px 0'
       marginDesktop='5px 0 10px 0'
       aling='right'
+      parentClass={parentClass}
     />
   );
 }
 
-export function PictureMultiPhoto({ name, alt }: IPictureProps) {
+export function PictureMultiPhoto({ name, alt, parentClass }: IPictureProps) {
   return (
     <Picture
       name={name}
@@ -220,11 +224,12 @@ export function PictureMultiPhoto({ name, alt }: IPictureProps) {
       marginLaptop='0 0 5px 20px'
       marginDesktop='0 0 5px 30px'
       aling='right'
+      parentClass={parentClass}
     />
   );
 }
 
-export function PictureOncePhoto({ name, alt }: IPictureProps) {
+export function PictureOncePhoto({ name, alt, parentClass }: IPictureProps) {
   return (
     <Picture
       name={name}
@@ -239,6 +244,7 @@ export function PictureOncePhoto({ name, alt }: IPictureProps) {
       marginLaptop='0 0 5px 20px'
       marginDesktop='0 0 5px 30px'
       aling='right'
+      parentClass={parentClass}
     />
   );
 }

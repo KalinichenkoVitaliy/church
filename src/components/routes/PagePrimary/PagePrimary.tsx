@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './pagePrimary.module.scss';
 
 import { TextIndentP, TextH2, BreakAfterH2, PictureMulti100TB } from '../../../utils/samples';
+import { Cross } from '../../Cross';
 
 const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
@@ -19,7 +20,10 @@ export function PagePrimary() {
     <div className={styles.pagePrimary}>
       <TextH2>Главная</TextH2>
       <BreakAfterH2 />
-      <PictureMulti100TB name='images/photos/primary/temple' alt='Фото храма' />
+      <div className={styles.picture}>
+        <Cross />
+        <PictureMulti100TB name='images/photos/primary/temple' alt='Фото храма' />
+      </div>
       <TextIndentP>
         В Свято-Никольском храме станицы Фастовецкой регулярно совершаются богослужения в субботние, воскресные и
         праздничные дни. Возглашаются проповеди, проводятся встречи с учителями и учениками. Каждый четверг в 9:00
