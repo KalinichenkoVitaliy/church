@@ -21,7 +21,7 @@ export function LifeNews() {
     createNews({ onReady: setItems });
   }, []);
 
-  return items.length === 0 ? (
+  return !items.length ? (
     <h3>Идёт загрузка событий ...</h3>
   ) : (
     <div className={styles.lifeNews}>
