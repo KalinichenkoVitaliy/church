@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import { isFolderNews, strYYYY_MM_DDtoNumber } from './lib';
-import { PictureMulti100TB, PictureOnce100TB, TextIndentPNews, TextPNews, TextSpanNews } from './samples';
+import { TextIndentPNewsWidth, TextPNewsWidth, TextSpanNews, PictureMulti100TB, PictureOnce100TB } from './samples';
 
 export type TBloc = {
   tag: string;
@@ -44,9 +44,9 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
     case 'span':
       return <TextSpanNews key={index}> {blocData.value}</TextSpanNews>;
     case 'p':
-      return <TextPNews key={index}>{blocData.value}</TextPNews>;
+      return <TextPNewsWidth key={index}>{blocData.value}</TextPNewsWidth>;
     case 'indent_p':
-      return <TextIndentPNews key={index}>{blocData.value}</TextIndentPNews>;
+      return <TextIndentPNewsWidth key={index}>{blocData.value}</TextIndentPNewsWidth>;
     case 'picture_multi':
       const namePictureMulti = `news/${blocId}/${blocData.value}`;
       return <PictureMulti100TB key={index} name={namePictureMulti} alt={`Фото /${namePictureMulti}`} />;

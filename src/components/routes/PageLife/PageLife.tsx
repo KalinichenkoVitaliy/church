@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './pageLife.module.scss';
 
-import { BreakAfterH2, BreakInterP, TextH2, TextH3 } from '../../../utils/samples';
+import { TextH2ACenter, TextH3, BreakAfterH2, BreakInterP } from '../../../utils/samples';
 
 import { LifeNews } from '../../LifeNews';
 
@@ -19,7 +19,7 @@ export function PageLife() {
 
   return (
     <div className={styles.pageLife}>
-      <TextH2>Приходская жизнь</TextH2>
+      <TextH2ACenter>Приходская жизнь</TextH2ACenter>
       <BreakAfterH2 />
       <TextH3>События:</TextH3>
       <BreakInterP />

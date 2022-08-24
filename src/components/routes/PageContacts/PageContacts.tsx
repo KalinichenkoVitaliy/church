@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './pageContacts.module.scss';
 
-import { TextP, TextH2, BreakAfterH2, BreakInterP } from '../../../utils/samples';
+import { TextH2ACenter, TextPNewsWidth, BreakAfterH2, BreakInterP } from '../../../utils/samples';
 
 import { FormFeedback } from '../../FormFeedback';
 import { YandexMap } from '../../YandexMap';
@@ -20,32 +20,32 @@ export function PageContacts() {
 
   return (
     <div className={styles.pageContacts}>
-      <TextH2>Контакты</TextH2>
+      <TextH2ACenter>Контакты</TextH2ACenter>
       <BreakAfterH2 />
-      <TextP>
+      <TextPNewsWidth>
         <strong>Телефон прихода:</strong>{' '}
         <a className={styles.linkTo} href='tel:+78619645627'>
           +7 (861-96) 4-56-27
         </a>
-      </TextP>
+      </TextPNewsWidth>
       <BreakInterP />
-      <TextP>
+      <TextPNewsWidth>
         <strong>Ящик электронной почты (email):</strong>{' '}
         <a className={styles.linkTo} href='mailto:xpam-fastov-ne@mail.ru'>
           xpam-fastov-ne@mail.ru
         </a>
-      </TextP>
+      </TextPNewsWidth>
       <BreakInterP />
       <div className={styles.placeForm}>
-        <TextP>Вы можете написать нам прямо здесь и мы вам обязательно ответим:</TextP>
+        <TextPNewsWidth>Вы можете написать нам прямо здесь и мы вам обязательно ответим:</TextPNewsWidth>
         <BreakInterP />
         <FormFeedback />
       </div>
       <BreakInterP />
-      <TextP>
+      <TextPNewsWidth>
         <strong>Адрес расположения храма:</strong> Россия, Краснодарский край, Тихорецкий район, станица Фастовецкая,
         улица Ленина, дом 3-а
-      </TextP>
+      </TextPNewsWidth>
       <BreakInterP />
       <div className={styles.placeMap}>
         <YandexMap />

@@ -21,7 +21,7 @@ export function DoLinkTo({ goTo = `/`, children, title, parentClass, onClick }: 
   );
 }
 
-export function TextH2({ children }: ITextProps) {
+export function TextH2ACenter({ children }: ITextProps) {
   return (
     <Text
       As='h2'
@@ -64,7 +64,7 @@ export function TextSpanNews({ children }: ITextProps) {
   );
 }
 
-export function TextP({ children }: ITextProps) {
+export function TextPWidth({ children }: ITextProps) {
   return (
     <Text
       As='p'
@@ -87,6 +87,20 @@ export function TextPNews({ children }: ITextProps) {
       fontTablet={{ size: 14, lineHeight: '18px', weight: 400 }}
       fontLaptop={{ size: 14, lineHeight: '18px', weight: 400 }}
       fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
+    >
+      {children}
+    </Text>
+  );
+}
+
+export function TextPNewsWidth({ children }: ITextProps) {
+  return (
+    <Text
+      As='p'
+      fontMobile={{ size: 13, lineHeight: '17px', weight: 400 }}
+      fontTablet={{ size: 14, lineHeight: '18px', weight: 400 }}
+      fontLaptop={{ size: 14, lineHeight: '18px', weight: 400 }}
+      fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
       textAling={EAling.justify}
     >
       {children}
@@ -94,7 +108,7 @@ export function TextPNews({ children }: ITextProps) {
   );
 }
 
-export function TextIndentP({ children }: ITextProps) {
+export function TextIndentPWidth({ children }: ITextProps) {
   return (
     <Text
       As='p'
@@ -110,7 +124,7 @@ export function TextIndentP({ children }: ITextProps) {
   );
 }
 
-export function TextIndentPNews({ children }: ITextProps) {
+export function TextIndentPNewsWidth({ children }: ITextProps) {
   return (
     <Text
       As='p'
