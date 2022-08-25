@@ -14,11 +14,15 @@ import { createNews, disassemblyContent, TNew } from '../../utils/apiNews';
 
 import { TextPNewsWidth } from '../../utils/samples';
 
-export function LifeNews() {
+interface ILifeNewsProps {
+  isAsside?: boolean;
+}
+
+export function LifeNews({ isAsside = false }: ILifeNewsProps) {
   const [items, setItems] = React.useState<TNew[]>([]);
 
   React.useEffect(() => {
-    createNews({ onReady: setItems });
+    createNews({ isAsside: isAsside, onReady: setItems });
   }, []);
 
   return !items.length ? (

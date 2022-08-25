@@ -1,0 +1,9 @@
+.shortNews {
+  width: 100%;
+
+  &Title {
+    display: flex;
+    width: max-content;
+    border-top: 1px solid var(--greyDD);
+  }
+}

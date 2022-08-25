@@ -14,6 +14,7 @@ export type TNew = {
   content: TBloc[];
 };
 export interface ICreateNews {
+  isAsside: boolean;
   onReady: React.Dispatch<React.SetStateAction<TNew[]>>;
 }
 
@@ -59,7 +60,7 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
   }
 };
 
-export function createNews({ onReady }: ICreateNews) {
+export function createNews({ isAsside, onReady }: ICreateNews) {
   // const foldersNews = 'news/';
   const foldersNews = 'news/news.json';
   let news: string[] = [];
@@ -70,15 +71,14 @@ export function createNews({ onReady }: ICreateNews) {
     const intervalId = setInterval(() => {
       if (accumNews.length === newsLength) {
         clearInterval(intervalId);
-        onReady(
-          accumNews.sort((a, b) => {
-            const n1 = strYYYY_MM_DDtoNumber(a.uuid);
-            const n2 = strYYYY_MM_DDtoNumber(b.uuid);
-            if (n1 < n2) return 1;
-            if (n1 > n2) return -1;
-            return 0;
-          })
-        );
+        const sortNews = accumNews.sort((a, b) => {
+          const n1 = strYYYY_MM_DDtoNumber(a.uuid);
+          const n2 = strYYYY_MM_DDtoNumber(b.uuid);
+          if (n1 < n2) return 1;
+          if (n1 > n2) return -1;
+          return 0;
+        });
+        onReady(isAsside ? sortNews.slice(0, 5) : sortNews);
       }
     }, 100);
   };
