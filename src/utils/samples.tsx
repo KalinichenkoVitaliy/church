@@ -3,7 +3,7 @@ import { Break } from '../shared/Break';
 import { ILinkToProps, LinkTo } from '../components/LinkTo';
 import { IPictureProps, Picture } from '../shared/Picture';
 
-export function DoLinkTo({ goTo = `/`, children, title, parentClass, onClick }: ILinkToProps) {
+export function DoLinkToUpper({ goTo = `/`, children, title, parentClass, onClick }: ILinkToProps) {
   return (
     <LinkTo
       goTo={goTo}
@@ -12,6 +12,23 @@ export function DoLinkTo({ goTo = `/`, children, title, parentClass, onClick }: 
       fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
       fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
       upperCase
+      title={title}
+      parentClass={parentClass}
+      onClick={onClick}
+    >
+      {children}
+    </LinkTo>
+  );
+}
+
+export function DoLinkTo({ goTo = `/`, children, title, parentClass, onClick }: ILinkToProps) {
+  return (
+    <LinkTo
+      goTo={goTo}
+      fontMobile={{ size: 12, lineHeight: '1', weight: 300 }}
+      fontTablet={{ size: 12, lineHeight: '1', weight: 300 }}
+      fontLaptop={{ size: 14, lineHeight: '1', weight: 300 }}
+      fontDesktop={{ size: 14, lineHeight: '1', weight: 300 }}
       title={title}
       parentClass={parentClass}
       onClick={onClick}

@@ -23,6 +23,7 @@ export function LifeNews({ isAsside = false }: ILifeNewsProps) {
 
   React.useEffect(() => {
     createNews({ isAsside: isAsside, onReady: setItems });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return !items.length ? (
