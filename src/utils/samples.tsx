@@ -169,6 +169,10 @@ export function BreakInterP() {
   return <Break stepMobile={8} stepTablet={10} stepLaptop={14} stepDesktop={18} top />;
 }
 
+export function BreakInterAssides() {
+  return <Break stepMobile={15} stepTablet={20} stepLaptop={25} stepDesktop={30} top />;
+}
+
 export function PictureMulti100TB({ name, alt, parentClass }: IPictureProps) {
   return (
     <Picture

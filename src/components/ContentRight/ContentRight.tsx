@@ -3,10 +3,10 @@ import { useMediaQuery } from 'react-responsive';
 
 import styles from './contentRight.module.scss';
 
-import { Break } from '../../shared/Break';
+import { BreakInterAssides } from '../../utils/samples';
 import { EparchyInfo } from '../asside/EparchyInfo';
 import { ShortNews } from '../asside/ShortNews';
-// import { IconDay } from '../asside/IconDay';
+import { IconDay } from '../asside/IconDay';
 
 const bpMinWidthLaptop = getComputedStyle(document.documentElement).getPropertyValue('--breakpointMinWidthLaptop');
 
@@ -16,9 +16,9 @@ export function ContentRight() {
   return (
     <div className={styles.contentRight}>
       <EparchyInfo />
-      <Break stepMobile={15} stepTablet={20} stepLaptop={25} stepDesktop={30} top />
-      {/* <IconDay />
-      <Break stepMobile={15} stepTablet={20} stepLaptop={25} stepDesktop={30} top /> */}
+      <BreakInterAssides />
+      <IconDay />
+      <BreakInterAssides />
       {isLaptopDesktop && <ShortNews />}
     </div>
   );

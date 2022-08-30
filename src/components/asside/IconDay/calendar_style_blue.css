@@ -1,0 +1,116 @@
+/* a:link {
+  font-size: 10pt;
+  color: #0000ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:visited {
+  font-size: 10pt;
+  color: #0000ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  font-size: 10pt;
+  color: #999999;
+  text-decoration: none;
+  font-weight: bold;
+} */
+
+a:link.main {
+  font-size: 10pt;
+  color: #3333cc;
+}
+a:visited.main {
+  font-size: 10pt;
+  color: #3333cc;
+}
+a:hover.main {
+  font-size: 10pt;
+  color: #00ccff;
+}
+a:active.main {
+  font-size: 10pt;
+  color: #ff0000;
+}
+
+.normaltext {
+  color: #000000;
+  font-weight: normal;
+  font-size: 10pt;
+}
+.minortext {
+  color: #757575;
+  font-weight: normal;
+  font-size: 10pt;
+}
+.dataheader {
+  color: #336699;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.headerheader {
+  color: #000000;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.headerfast {
+  color: #008000;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.headernofast {
+  color: #ff5050;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.scriptureheader {
+  color: #000000;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.troparionheader {
+  color: #000000;
+  font-weight: bold;
+  font-size: 11pt;
+}
+.troparionseparator {
+  background-color: #3333cc;
+}
+
+.pdataheader {
+  word-spacing: 0;
+  text-indent: 0;
+  line-height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 10;
+  margin-bottom: 5;
+}
+.pheaderheader {
+  word-spacing: 0;
+  text-indent: 0;
+  line-height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 10;
+  margin-bottom: 5;
+}
+.pscriptureheader {
+  word-spacing: 0;
+  text-indent: 0;
+  line-height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 10;
+  margin-bottom: 5;
+}
+.ptroparionheader {
+  word-spacing: 0;
+  text-indent: 0;
+  line-height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 10;
+  margin-bottom: 5;
+}

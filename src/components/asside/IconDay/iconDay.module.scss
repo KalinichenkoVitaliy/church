@@ -1,5 +1,10 @@
 .iconDay {
-  font-size: 14px;
-  line-height: 21px;
-  color: var(--grey63);
+  width: 100%;
+
+  &Title {
+    display: flex;
+    width: max-content;
+    border-top: 1px solid var(--greyDD);
+    padding: 12px 0 6px;
+  }
 }
