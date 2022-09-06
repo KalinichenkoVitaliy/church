@@ -92,3 +92,17 @@ export function isFolder(inStr: string) {
   const maskNameFolder = /^\d{4}\-\d{2}\-\d{2}\_{0,1}\d{0,}$/;
   return inStr.match(maskNameFolder) !== null;
 }
+
+/**
+ * Функция расчёта индекса для сортировки массива элементов в порядке убывания
+ * @param a: string
+ * @param b: string
+ * @returns
+ */
+export const descendingSort = (a: string, b: string) => {
+  const n1 = strYYYY_MM_DDtoNumber(a);
+  const n2 = strYYYY_MM_DDtoNumber(b);
+  if (n1 < n2) return 1;
+  if (n1 > n2) return -1;
+  return 0;
+};

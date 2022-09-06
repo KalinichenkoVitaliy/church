@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { isFolder, strYYYY_MM_DDtoNumber } from './lib';
+import { isFolder, descendingSort } from './lib';
 import {
   TextIndentPNoticeWidth,
   TextPNoticeWidth,
@@ -72,36 +72,6 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
   }
 };
 
-/**
- * Функция сортировки массива элементов в порядке убывания
- * @param arrayNotices
- * @returns
- */
-const sortListNotices = (arrayListNotices: string[]) => {
-  return arrayListNotices.sort((a, b) => {
-    const n1 = strYYYY_MM_DDtoNumber(a);
-    const n2 = strYYYY_MM_DDtoNumber(b);
-    if (n1 < n2) return 1;
-    if (n1 > n2) return -1;
-    return 0;
-  });
-};
-
-/**
- * Функция сортировки массива элементов по свойству uuid в порядке убывания
- * @param arrayNotices
- * @returns
- */
-const sortNotices = (arrayNotices: TFile[]) => {
-  return arrayNotices.sort((a, b) => {
-    const n1 = strYYYY_MM_DDtoNumber(a.uuid);
-    const n2 = strYYYY_MM_DDtoNumber(b.uuid);
-    if (n1 < n2) return 1;
-    if (n1 > n2) return -1;
-    return 0;
-  });
-};
-
 export function readNotices({ typeNotice, isAsside = false, assideNumber = 3, onReady }: IReadNoticesProps) {
   const fileFoldersNotice = `${typeNotice}/${typeNotice}.json`;
   let notices: string[] = [];
@@ -112,7 +82,7 @@ export function readNotices({ typeNotice, isAsside = false, assideNumber = 3, on
     const intervalId = setInterval(() => {
       if (accumNotices.length === noticesLength) {
         clearInterval(intervalId);
-        onReady(sortNotices(accumNotices));
+        onReady(accumNotices.sort((a, b) => descendingSort(a.uuid, b.uuid)));
       }
     }, 100);
   };
@@ -147,7 +117,7 @@ export function readNotices({ typeNotice, isAsside = false, assideNumber = 3, on
             .filter((nameFolder: string) => {
               return isFolder(nameFolder);
             })
-            .sortListNotices(notices);
+            .sort((a: string, b: string) => descendingSort(a, b));
         if (isAsside) notices = notices.slice(0, assideNumber);
         noticesLength = notices.length;
         readContentNotices();
