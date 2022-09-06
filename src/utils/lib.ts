@@ -87,8 +87,8 @@ export function strYYYY_MM_DDtoNumber(inStr: string) {
  * @param inStr
  * @returns boolean
  */
-export function isFolderNews(inStr: string) {
+export function isFolder(inStr: string) {
   // eslint-disable-next-line no-useless-escape
-  const maskNameFolderNews = /^\d{4}\-\d{2}\-\d{2}\_{0,1}\d{0,}$/;
-  return inStr.match(maskNameFolderNews) !== null;
+  const maskNameFolder = /^\d{4}\-\d{2}\-\d{2}\_{0,1}\d{0,}$/;
+  return inStr.match(maskNameFolder) !== null;
 }

@@ -5,7 +5,7 @@ import styles from './pagePrimary.module.scss';
 import {
   TextH2ACenter,
   TextIndentPWidth,
-  TextPNews,
+  TextPNotice,
   BreakAfterH2,
   BreakInterP,
   PictureMulti100TB,
@@ -72,28 +72,28 @@ export function PagePrimary() {
         непосредственно в храме, так и по перечислениям. Вот реквизиты для безналичных перечислений:
       </TextIndentPWidth>
       <BreakInterP />
-      <TextPNews>
+      <TextPNotice>
         <strong>Получатель:</strong> ПРАВОСЛАВНЫЙ ПРИХОД СВЯТО-НИКОЛЬСКОГО ХРАМА СТ. ФАСТОВЕЦКОЙ ТИХОРЕЦКОГО РАЙОНА К.К.
         ТИХОРЕЦКОЙ ЕПАРХИИ
-      </TextPNews>
-      <TextPNews>
+      </TextPNotice>
+      <TextPNotice>
         <strong>ИНН:</strong> 2354006941
-      </TextPNews>
-      <TextPNews>
+      </TextPNotice>
+      <TextPNotice>
         <strong>КПП:</strong> 235401001
-      </TextPNews>
-      <TextPNews>
+      </TextPNotice>
+      <TextPNotice>
         <strong>Расчётный счёт:</strong> 40703810200070000018
-      </TextPNews>
-      <TextPNews>
+      </TextPNotice>
+      <TextPNotice>
         <strong>Банк:</strong> КБ "Кубань Кредит" ООО г. Краснодар
-      </TextPNews>
-      <TextPNews>
+      </TextPNotice>
+      <TextPNotice>
         <strong>БИК банка:</strong> 040349722
-      </TextPNews>
-      <TextPNews>
+      </TextPNotice>
+      <TextPNotice>
         <strong>Корреспондентский счёт:</strong> 30101810200000000722
-      </TextPNews>
+      </TextPNotice>
     </div>
   );
 }

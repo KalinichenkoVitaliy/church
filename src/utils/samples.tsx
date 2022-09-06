@@ -67,7 +67,7 @@ export function TextH3({ children }: ITextProps) {
   );
 }
 
-export function TextSpanNews({ children }: ITextProps) {
+export function TextSpanNotice({ children }: ITextProps) {
   return (
     <Text
       As='span'
@@ -96,7 +96,7 @@ export function TextPWidth({ children }: ITextProps) {
   );
 }
 
-export function TextPNews({ children }: ITextProps) {
+export function TextPNotice({ children }: ITextProps) {
   return (
     <Text
       As='p'
@@ -110,7 +110,7 @@ export function TextPNews({ children }: ITextProps) {
   );
 }
 
-export function TextPNewsWidth({ children }: ITextProps) {
+export function TextPNoticeWidth({ children }: ITextProps) {
   return (
     <Text
       As='p'
@@ -141,7 +141,7 @@ export function TextIndentPWidth({ children }: ITextProps) {
   );
 }
 
-export function TextIndentPNewsWidth({ children }: ITextProps) {
+export function TextIndentPNoticeWidth({ children }: ITextProps) {
   return (
     <Text
       As='p'

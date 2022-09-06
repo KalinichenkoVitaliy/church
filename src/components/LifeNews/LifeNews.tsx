@@ -10,19 +10,20 @@ import {
 import styles from './lifeNews.module.scss';
 
 import { strYYYY_MM_DDtoDDMMYYYY } from '../../utils/lib';
-import { createNews, disassemblyContent, TNew } from '../../utils/apiNews';
+import { readNotices, disassemblyContent, TFile, ENotice } from '../../utils/apiFiles';
 
-import { TextPNewsWidth } from '../../utils/samples';
+import { TextPNoticeWidth } from '../../utils/samples';
 
 interface ILifeNewsProps {
   isAsside?: boolean;
+  assideNumber?: number;
 }
 
-export function LifeNews({ isAsside = false }: ILifeNewsProps) {
-  const [items, setItems] = React.useState<TNew[]>([]);
+export function LifeNews({ isAsside, assideNumber }: ILifeNewsProps) {
+  const [items, setItems] = React.useState<TFile[]>([]);
 
   React.useEffect(() => {
-    createNews({ isAsside: isAsside, onReady: setItems });
+    readNotices({ typeNotice: ENotice.news, isAsside, assideNumber, onReady: setItems });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -35,11 +36,11 @@ export function LifeNews({ isAsside = false }: ILifeNewsProps) {
           <AccordionItem key={item.uuid} className={styles.accordion__item}>
             <AccordionItemHeading>
               <AccordionItemButton className={styles.accordion__button}>
-                <TextPNewsWidth>
+                <TextPNoticeWidth>
                   <strong>{strYYYY_MM_DDtoDDMMYYYY(item.uuid) + ' г.'}</strong>
                   &ensp;&ndash;&ensp;
                   {item.title}
-                </TextPNewsWidth>
+                </TextPNoticeWidth>
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel className={styles.accordion__panel}>

@@ -6,7 +6,7 @@ import {
   TextH2ACenter,
   TextH3,
   TextIndentPWidth,
-  TextPNewsWidth,
+  TextPNoticeWidth,
   BreakAfterH2,
   BreakAfterH3,
 } from '../../../utils/samples';
@@ -28,35 +28,35 @@ export function PageSchedule() {
       <BreakAfterH2 />
       <TextH3>Ежемесячные регулярные богослужения:</TextH3>
       <BreakAfterH3 />
-      <TextPNewsWidth>
+      <TextPNoticeWidth>
         <strong>Последнее воскресенье месяца</strong> &ndash; Благодарственный молебен Господу
-      </TextPNewsWidth>
+      </TextPNoticeWidth>
       <BreakAfterH2 />
       <TextH3>Еженедельные регулярные богослужения:</TextH3>
       <BreakAfterH3 />
-      {/* <TextPNewsWidth><strong>Понедельник</strong> &ndash; нет богослужений</TextPNewsWidth> */}
-      {/* <TextPNewsWidth><strong>Вторник</strong> &ndash; нет богослужений</TextPNewsWidth> */}
-      {/* <TextPNewsWidth><strong>Среда</strong> &ndash; нет богослужений</TextPNewsWidth> */}
-      <TextPNewsWidth>
+      {/* <TextPNoticeWidth><strong>Понедельник</strong> &ndash; нет богослужений</TextPNoticeWidth> */}
+      {/* <TextPNoticeWidth><strong>Вторник</strong> &ndash; нет богослужений</TextPNoticeWidth> */}
+      {/* <TextPNoticeWidth><strong>Среда</strong> &ndash; нет богослужений</TextPNoticeWidth> */}
+      <TextPNoticeWidth>
         <strong>Четверг: 9:00</strong> &ndash; Молебен с акафистом святителю Николаю Чудотворцу
-      </TextPNewsWidth>
-      <TextPNewsWidth>
+      </TextPNoticeWidth>
+      <TextPNoticeWidth>
         <strong>Пятница: 16:00</strong> &ndash; Вечернее богослужение (в случае отсутствия в течении седмицы праздничных
         богослужений)
-      </TextPNewsWidth>
-      <TextPNewsWidth>
+      </TextPNoticeWidth>
+      <TextPNoticeWidth>
         <strong>Суббота: 8:00</strong> &ndash; Утреннее богослужение (в случае отсутствия в течении седмицы праздничных
         богослужений)
-      </TextPNewsWidth>
-      <TextPNewsWidth>
+      </TextPNoticeWidth>
+      <TextPNoticeWidth>
         &emsp;&emsp;&emsp;&emsp;&emsp;<strong>сразу после литургии или в 9:00</strong> &ndash; Панихида по усопшим
-      </TextPNewsWidth>
-      <TextPNewsWidth>
+      </TextPNoticeWidth>
+      <TextPNoticeWidth>
         &emsp;&emsp;&emsp;&emsp;&emsp;<strong>16:00</strong> &ndash; Вечернее богослужение
-      </TextPNewsWidth>
-      <TextPNewsWidth>
+      </TextPNoticeWidth>
+      <TextPNoticeWidth>
         <strong>Воскресенье: 8:00</strong> &ndash; Утреннее богослужение
-      </TextPNewsWidth>
+      </TextPNoticeWidth>
       <BreakAfterH3 />
       <TextIndentPWidth>
         Кроме того, в седмицу совершается, как правило, 4 богослужения (иногда 6). Если в течение седмицы случается

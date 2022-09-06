@@ -26,7 +26,7 @@ export function ShortNews() {
       >
         Свежие события:
       </Text>
-      <LifeNews isAsside />
+      <LifeNews isAsside assideNumber={5} />
       <Break step={6} top />
       <DoLinkTo
         goTo='/life'
