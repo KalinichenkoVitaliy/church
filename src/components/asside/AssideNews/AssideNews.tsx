@@ -14,7 +14,7 @@ import { Break } from '../../../shared/Break';
 export function AssideNews() {
   const dispatch = useDispatch();
   const isLife = useSelector<TRootState, boolean>((state) => state.pagesState.pages.life);
-  const items = useSelector<TRootState, TNotice[]>((state) => state.noticesState.notices.shortActiveAdverts);
+  const items = useSelector<TRootState, TNotice[]>((state) => state.noticesState.notices.shortNews);
 
   return isLife ? null : (
     <>
