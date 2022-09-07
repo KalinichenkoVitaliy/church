@@ -5,7 +5,8 @@ import styles from './contentRight.module.scss';
 
 import { BreakInterAssides } from '../../utils/samples';
 import { EparchyInfo } from '../asside/EparchyInfo';
-import { ShortNews } from '../asside/ShortNews';
+import { AssideAdverts } from '../asside/AssideAdverts';
+import { AssideNews } from '../asside/AssideNews';
 // import { IconDay } from '../asside/IconDay';
 
 const bpMinWidthLaptop = getComputedStyle(document.documentElement).getPropertyValue('--breakpointMinWidthLaptop');
@@ -17,9 +18,9 @@ export function ContentRight() {
     <div className={styles.contentRight}>
       <EparchyInfo />
       <BreakInterAssides />
-      {/* <IconDay />
-      <BreakInterAssides /> */}
-      {isLaptopDesktop && <ShortNews />}
+      {/* <IconDay />*/}
+      {isLaptopDesktop && <AssideAdverts />}
+      {isLaptopDesktop && <AssideNews />}
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
-import { isFolder, descendingSort } from './lib';
+import { TBloc, TNotice } from '../types';
+
+import { isFolder, descendingSort, isAdvertActive } from './lib';
 import {
   TextIndentPNoticeWidth,
   TextPNoticeWidth,
@@ -14,20 +16,13 @@ export enum ENotice {
   news = 'news',
   adverts = 'adverts',
 }
-export type TBloc = {
-  tag: string;
-  value?: string;
-};
-export type TFile = {
-  uuid: string;
-  title: string;
-  content: TBloc[];
-};
+
 export interface IReadNoticesProps {
   typeNotice: ENotice;
+  isActiveAdverts?: boolean;
   isAsside?: boolean;
   assideNumber?: number;
-  onReady: React.Dispatch<React.SetStateAction<TFile[]>>;
+  onReady: (notices: TNotice[]) => void;
 }
 
 /**
@@ -72,13 +67,19 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
   }
 };
 
-export function readNotices({ typeNotice, isAsside = false, assideNumber = 3, onReady }: IReadNoticesProps) {
-  const fileFoldersNotice = `${typeNotice}/${typeNotice}.json`;
+export function readNotices({
+  typeNotice,
+  isActiveAdverts = false,
+  isAsside = false,
+  assideNumber = 3,
+  onReady,
+}: IReadNoticesProps) {
+  const fileFoldersNotice = `/${typeNotice}/${typeNotice}.json`;
   let notices: string[] = [];
   let noticesLength: number = 0;
-  const accumNotices: TFile[] = [];
+  const accumNotices: TNotice[] = [];
 
-  const saveSortNotices = () => {
+  const saveSortedNotices = () => {
     const intervalId = setInterval(() => {
       if (accumNotices.length === noticesLength) {
         clearInterval(intervalId);
@@ -90,40 +91,45 @@ export function readNotices({ typeNotice, isAsside = false, assideNumber = 3, on
   const readContentNotices = () => {
     let nameLastFileNotices = '';
     for (let i = 0; i < notices.length; i++) {
-      const nameFileNotice = `${typeNotice}/${notices[i]}/${notices[i]}.json`;
+      const nameFileNotice = `/${typeNotice}/${notices[i]}/${notices[i]}.json`;
       if (i >= notices.length - 1) nameLastFileNotices = nameFileNotice;
       axios
-        .get(nameFileNotice)
+        .get(nameFileNotice, { baseURL: window.location.origin })
         // eslint-disable-next-line no-loop-func
         .then((res) => {
           accumNotices.push(res.data);
-          if (res.config.url === nameLastFileNotices) saveSortNotices();
+          if (res.config.url === nameLastFileNotices) saveSortedNotices();
         })
         // eslint-disable-next-line no-loop-func
         .catch((err) => {
           noticesLength--;
           console.log(`Ошибка получения данных из файла "${err.config.url}":`, err);
-          if (err.config.url === nameLastFileNotices) saveSortNotices();
+          if (err.config.url === nameLastFileNotices) saveSortedNotices();
         });
     }
   };
 
   const getFoldersNotices = () => {
     axios
-      .get(fileFoldersNotice)
+      .get(fileFoldersNotice, { baseURL: window.location.origin })
       .then((res) => {
-        if (res.data.length > 0)
+        if (res.data.length > 0) {
           notices = res.data
             .filter((nameFolder: string) => {
-              return isFolder(nameFolder);
+              let isOk = isFolder(nameFolder);
+              if (isOk && typeNotice === ENotice.adverts) isOk = isOk && isActiveAdverts === isAdvertActive(nameFolder);
+              return isOk;
             })
             .sort((a: string, b: string) => descendingSort(a, b));
-        if (isAsside) notices = notices.slice(0, assideNumber);
-        noticesLength = notices.length;
-        readContentNotices();
+          if (isAsside) notices = notices.slice(0, assideNumber);
+          if (notices.length) {
+            noticesLength = notices.length;
+            readContentNotices();
+          } else onReady([]);
+        } else onReady([]);
       })
       .catch((err) => {
-        console.log(`Ошибка получения списка папок из файла "${fileFoldersNotice}":`, err);
+        onReady([]);
       });
   };
 

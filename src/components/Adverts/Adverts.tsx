@@ -8,53 +8,68 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion';
 
-import styles from './lifeNews.module.scss';
+import styles from './adverts.module.scss';
 
 import { TNotice, TRootState } from '../../types';
 import {
-  noticesSetIsReadedNews,
-  noticesSetIsReadedShortNews,
-  noticesSetNews,
-  noticesSetShortNews,
+  noticesSetActiveAdverts,
+  noticesSetInactiveAdverts,
+  noticesSetIsReadedActiveAdverts,
+  noticesSetIsReadedInactiveAdverts,
+  noticesSetIsReadedShortActiveAdverts,
+  noticesSetShortActiveAdverts,
 } from '../../store/noticesSlice';
 
-import { strYYYY_MM_DDtoDDMMYYYY } from '../../utils/lib';
 import { readNotices, disassemblyContent, ENotice } from '../../utils/apiNotices';
 
 import { TextIndentP, TextPNoticeWidth } from '../../utils/samples';
 import { EColor, Text } from '../../shared/Text';
 
-interface ILifeNewsProps {
+interface IActiveAdvertsProps {
+  isActiveAdverts?: boolean;
   isAsside?: boolean;
   assideNumber?: number;
 }
 
-export function LifeNews({ isAsside, assideNumber }: ILifeNewsProps) {
+export function Adverts({ isActiveAdverts, isAsside, assideNumber }: IActiveAdvertsProps) {
   const dispatch = useDispatch();
   const isReaded = useSelector<TRootState, boolean>((state) =>
-    isAsside ? state.noticesState.notices.isReadedShortNews : state.noticesState.notices.isReadedNews
+    isAsside
+      ? state.noticesState.notices.isReadedShortActiveAdverts
+      : isActiveAdverts
+      ? state.noticesState.notices.isReadedActiveAdverts
+      : state.noticesState.notices.isReadedInactiveAdverts
   );
   const items = useSelector<TRootState, TNotice[]>((state) =>
-    isAsside ? state.noticesState.notices.shortNews : state.noticesState.notices.news
+    isAsside
+      ? state.noticesState.notices.shortActiveAdverts
+      : isActiveAdverts
+      ? state.noticesState.notices.activeAdverts
+      : state.noticesState.notices.inactiveAdverts
   );
 
   const callBackOnReady = (notices: TNotice[]) => {
     if (isAsside) {
-      dispatch(noticesSetShortNews({ shortNews: notices }));
-      dispatch(noticesSetIsReadedShortNews({ isReadedShortNews: true }));
+      dispatch(noticesSetShortActiveAdverts({ shortActiveAdverts: notices }));
+      dispatch(noticesSetIsReadedShortActiveAdverts({ isReadedShortActiveAdverts: true }));
+    } else if (isActiveAdverts) {
+      dispatch(noticesSetActiveAdverts({ activeAdverts: notices }));
+      dispatch(noticesSetIsReadedActiveAdverts({ isReadedActiveAdverts: true }));
     } else {
-      dispatch(noticesSetNews({ news: notices }));
-      dispatch(noticesSetIsReadedNews({ isReadedNews: true }));
+      dispatch(noticesSetInactiveAdverts({ inactiveAdverts: notices }));
+      dispatch(noticesSetIsReadedInactiveAdverts({ isReadedInactiveAdverts: true }));
     }
   };
 
   React.useEffect(() => {
-    readNotices({ typeNotice: ENotice.news, isAsside, assideNumber, onReady: callBackOnReady });
+    readNotices({ typeNotice: ENotice.adverts, isAsside, assideNumber, isActiveAdverts, onReady: callBackOnReady });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const textOnReading = 'Идёт загрузка событий ...';
-  const textOnEmptyList = 'Список событий пуст';
+  const textOnReading = isActiveAdverts
+    ? 'Идёт загрузка действующих объявлений ...'
+    : 'Идёт загрузка архивных объявлений ...';
+  const textOnEmptyList = isActiveAdverts ? 'Список действующих объявлений пуст' : 'Список архивных объявлений пуст';
 
   return !isReaded ? (
     <>
@@ -69,17 +84,13 @@ export function LifeNews({ isAsside, assideNumber }: ILifeNewsProps) {
   ) : !items?.length ? (
     <>{isAsside ? null : <TextIndentP>{textOnEmptyList}</TextIndentP>}</>
   ) : (
-    <div className={styles.lifeNews}>
+    <div className={styles.adverts}>
       <Accordion allowMultipleExpanded allowZeroExpanded className={styles.accordion}>
         {items.map((item) => (
           <AccordionItem key={item.uuid} className={styles.accordion__item}>
             <AccordionItemHeading>
               <AccordionItemButton className={styles.accordion__button}>
-                <TextPNoticeWidth>
-                  <strong>{strYYYY_MM_DDtoDDMMYYYY(item.uuid) + ' г.'}</strong>
-                  &ensp;&ndash;&ensp;
-                  {item.title}
-                </TextPNoticeWidth>
+                <TextPNoticeWidth>{item.title}</TextPNoticeWidth>
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel className={styles.accordion__panel}>

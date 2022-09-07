@@ -5,6 +5,7 @@ import styles from './iconDay.module.scss';
 import './calendar_style_blue.css';
 
 import { EColor, Text } from '../../../shared/Text';
+import { BreakInterAssides } from '../../../utils/samples';
 
 // Скрипт загрузки календаря
 // const createLoadCalendar = () => {
@@ -120,17 +121,20 @@ export function IconDay() {
   }, []);
 
   return (
-    <div className={styles.iconDay}>
-      <Text
-        As='h3'
-        font={{ size: 14, lineHeight: '16px', weight: 700 }}
-        color={EColor.grey63}
-        upperCase
-        parentClass={styles.iconDayTitle}
-      >
-        Икона дня
-      </Text>
-      <div id='T1R' />
-    </div>
+    <>
+      <div className={styles.iconDay}>
+        <Text
+          As='h3'
+          font={{ size: 14, lineHeight: '16px', weight: 700 }}
+          color={EColor.grey63}
+          upperCase
+          parentClass={styles.iconDayTitle}
+        >
+          Икона дня
+        </Text>
+        <div id='T1R' />
+      </div>
+      <BreakInterAssides />
+    </>
   );
 }

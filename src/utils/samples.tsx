@@ -81,6 +81,20 @@ export function TextSpanNotice({ children }: ITextProps) {
   );
 }
 
+export function TextP({ children }: ITextProps) {
+  return (
+    <Text
+      As='p'
+      fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+      fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+      fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+      fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+    >
+      {children}
+    </Text>
+  );
+}
+
 export function TextPWidth({ children }: ITextProps) {
   return (
     <Text
@@ -119,6 +133,21 @@ export function TextPNoticeWidth({ children }: ITextProps) {
       fontLaptop={{ size: 14, lineHeight: '18px', weight: 400 }}
       fontDesktop={{ size: 15, lineHeight: '20px', weight: 300 }}
       textAling={EAling.justify}
+    >
+      {children}
+    </Text>
+  );
+}
+
+export function TextIndentP({ children }: ITextProps) {
+  return (
+    <Text
+      As='p'
+      fontMobile={{ size: 14, lineHeight: '18px', weight: 400 }}
+      fontTablet={{ size: 15, lineHeight: '21px', weight: 400 }}
+      fontLaptop={{ size: 17, lineHeight: '25px', weight: 400 }}
+      fontDesktop={{ size: 19, lineHeight: '27px', weight: 300 }}
+      indent
     >
       {children}
     </Text>

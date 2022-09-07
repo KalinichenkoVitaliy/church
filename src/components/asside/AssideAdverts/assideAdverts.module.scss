@@ -1,0 +1,19 @@
+@import '../../../assets/scss/mixins';
+
+.assideAdverts {
+  width: 100%;
+
+  &Title {
+    display: flex;
+    width: max-content;
+    border-top: 1px solid var(--greyDD);
+    padding: 12px 0 6px;
+  }
+  &Link {
+    @include animeTransitionEasyInOut03(color);
+
+    &:hover {
+      color: var(--blue19);
+    }
+  }
+}

@@ -13,6 +13,7 @@ const PageSanctitys = React.lazy(() => import('../routes/PageSanctitys/PageSanct
 const PageClergy = React.lazy(() => import('../routes/PageClergy/PageClergy'));
 const PageSchedule = React.lazy(() => import('../routes/PageSchedule/PageSchedule'));
 const PageLife = React.lazy(() => import('../routes/PageLife/PageLife'));
+const PageAdverts = React.lazy(() => import('../routes/PageAdverts/PageAdverts'));
 const PageContacts = React.lazy(() => import('../routes/PageContacts/PageContacts'));
 const PageNotFound = React.lazy(() => import('../routes/PageNotFound/PageNotFound'));
 
@@ -68,6 +69,14 @@ export function Content() {
               element={
                 <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageLife />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path='/adverts'
+              element={
+                <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
+                  <PageAdverts />
                 </React.Suspense>
               }
             />

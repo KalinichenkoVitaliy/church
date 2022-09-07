@@ -99,10 +99,15 @@ export function isFolder(inStr: string) {
  * @param b: string
  * @returns
  */
-export const descendingSort = (a: string, b: string) => {
+export function descendingSort(a: string, b: string) {
   const n1 = strYYYY_MM_DDtoNumber(a);
   const n2 = strYYYY_MM_DDtoNumber(b);
   if (n1 < n2) return 1;
   if (n1 > n2) return -1;
   return 0;
-};
+}
+
+export function isAdvertActive(nameFolder: string) {
+  const curDate = new Date().toISOString().slice(0, 10);
+  return nameFolder.slice(0, 10) >= curDate;
+}

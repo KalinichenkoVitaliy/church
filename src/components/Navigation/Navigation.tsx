@@ -18,7 +18,7 @@ export function Navigation() {
   };
 
   React.useEffect(() => {
-    const namePage = document.location.pathname.slice(1);
+    const namePage = window.location.pathname.replaceAll('/', '');
     handleClickOnLink(namePage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -29,6 +29,7 @@ export function Navigation() {
   const classClergy = classNames(styles.animeLink, { [styles.activeLink]: pages.clergy });
   const classSchedule = classNames(styles.animeLink, { [styles.activeLink]: pages.schedule });
   const classLife = classNames(styles.animeLink, { [styles.activeLink]: pages.life });
+  const classAdverts = classNames(styles.animeLink, { [styles.activeLink]: pages.adverts });
   const classContacts = classNames(styles.animeLink, { [styles.activeLink]: pages.contacts });
 
   return (
@@ -80,6 +81,14 @@ export function Navigation() {
         onClick={() => handleClickOnLink('life')}
       >
         Приходская жизнь
+      </DoLinkToUpper>
+      <DoLinkToUpper
+        goTo='/adverts'
+        title='Объявления для прихожан и посетителей'
+        parentClass={classAdverts}
+        onClick={() => handleClickOnLink('adverts')}
+      >
+        Объявления
       </DoLinkToUpper>
       <DoLinkToUpper
         goTo='/contacts'

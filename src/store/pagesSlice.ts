@@ -9,6 +9,7 @@ export const cleanPages: TPages = {
   clergy: false,
   schedule: false,
   life: false,
+  adverts: false,
   contacts: false,
 };
 
@@ -20,7 +21,8 @@ const pagesSlice = createSlice({
   reducers: {
     pagesSetActive(state, action) {
       const newState: TPages = { ...cleanPages };
-      newState[action.payload.namePage as keyof TPages] = true;
+      const namePage = action.payload.namePage.replaceAll('/', '');
+      newState[namePage as keyof TPages] = true;
       state.pages = newState;
     },
   },
