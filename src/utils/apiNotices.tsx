@@ -17,12 +17,11 @@ export enum ENotice {
   adverts = 'adverts',
 }
 
-export interface IReadNoticesProps {
+export interface IDisassemblyContentProps {
   typeNotice: ENotice;
-  isActiveAdverts?: boolean;
-  isAsside?: boolean;
-  assideNumber?: number;
-  onReady: (notices: TNotice[]) => void;
+  blocId: string;
+  blocData: TBloc;
+  index: number;
 }
 
 /**
@@ -43,7 +42,7 @@ export interface IReadNoticesProps {
  * @param picture_once - единственное изображение для mobile, tablet, laptop и desktop
  *                       на всю ширину экрана с отступами сверху и снизу
  */
-export const disassemblyContent = (blocId: string, blocData: TBloc, index: number) => {
+export const disassemblyContent = ({ typeNotice, blocId, blocData, index }: IDisassemblyContentProps) => {
   switch (blocData.tag) {
     case 'newline':
       return <br key={index} />;
@@ -56,16 +55,24 @@ export const disassemblyContent = (blocId: string, blocData: TBloc, index: numbe
     case 'indent_p':
       return <TextIndentPNoticeWidth key={index}>{blocData.value}</TextIndentPNoticeWidth>;
     case 'picture_multi':
-      const namePictureMulti = `news/${blocId}/${blocData.value}`;
-      return <PictureMulti100TB key={index} name={namePictureMulti} alt={`Фото /${namePictureMulti}`} />;
+      const namePictureMulti = `${window.location.origin}/${typeNotice}/${blocId}/${blocData.value}`;
+      return <PictureMulti100TB key={index} name={namePictureMulti} alt={`Фото ${namePictureMulti}`} />;
     case 'picture_once':
-      const namePictureOnce = `news/${blocId}/${blocData.value}`;
-      return <PictureOnce100TB key={index} name={namePictureOnce} alt={`Фото /${namePictureOnce}`} />;
+      const namePictureOnce = `${window.location.origin}/${typeNotice}/${blocId}/${blocData.value}`;
+      return <PictureOnce100TB key={index} name={namePictureOnce} alt={`Фото ${namePictureOnce}`} />;
 
     default:
       return null;
   }
 };
+
+export interface IReadNoticesProps {
+  typeNotice: ENotice;
+  isActiveAdverts?: boolean;
+  isAsside?: boolean;
+  assideNumber?: number;
+  onReady: (notices: TNotice[]) => void;
+}
 
 export function readNotices({
   typeNotice,
@@ -121,6 +128,7 @@ export function readNotices({
               return isOk;
             })
             .sort((a: string, b: string) => descendingSort(a, b));
+
           if (isAsside) notices = notices.slice(0, assideNumber);
           if (notices.length) {
             noticesLength = notices.length;

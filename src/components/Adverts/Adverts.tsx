@@ -94,7 +94,9 @@ export function Adverts({ isActiveAdverts, isAsside, assideNumber }: IActiveAdve
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel className={styles.accordion__panel}>
-              {item.content.map((bloc, index) => disassemblyContent(item.uuid, bloc, index))}
+              {item.content.map((bloc, index) =>
+                disassemblyContent({ typeNotice: ENotice.adverts, blocId: item.uuid, blocData: bloc, index: index })
+              )}
             </AccordionItemPanel>
           </AccordionItem>
         ))}
