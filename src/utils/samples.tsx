@@ -225,7 +225,7 @@ export function PictureOnce100TB({ name, alt, parentClass }: IPictureProps) {
     <Picture
       name={name}
       alt={alt}
-      once
+      isOnce
       size={{ width: '100%', height: 'auto' }}
       marginMobile='4px 0 8px 0'
       marginTablet='4px 0 8px 0'
@@ -298,7 +298,7 @@ export function PictureOncePhoto({ name, alt, parentClass }: IPictureProps) {
     <Picture
       name={name}
       alt={alt}
-      once
+      isOnce
       sizeMobile={{ width: 100, height: 'auto' }}
       sizeTablet={{ width: 120, height: 'auto' }}
       sizeLaptop={{ width: 150, height: 'auto' }}

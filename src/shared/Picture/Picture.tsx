@@ -19,7 +19,7 @@ export type TAling = 'left' | 'right' | 'none' | 'inherit';
 export interface IPictureProps {
   name: string;
   alt?: string;
-  once?: boolean;
+  isOnce?: boolean;
   size?: TImageSize;
   sizeMobile?: TImageSize;
   sizeTablet?: TImageSize;
@@ -41,7 +41,7 @@ export interface IPictureProps {
 export function Picture({
   name,
   alt = '',
-  once = false,
+  isOnce = false,
   size,
   sizeMobile,
   sizeTablet,
@@ -64,7 +64,7 @@ export function Picture({
   const isLaptop = useMediaQuery({ query: `(min-width: ${bpMinWidthLaptop}) and (max-width: ${bpMaxWidthLaptop})` });
   const isDesktop = useMediaQuery({ query: `(min-width: ${bpMinWidthDesktop})` });
 
-  let imageSrc: string = '';
+  let imageUrl: string = '';
   let endingImgName: string = '';
   let imageWidth: number | string = 0;
   let imageHeight: number | string = 0;
@@ -114,14 +114,14 @@ export function Picture({
     if (alingDesktop) imageAling = alingDesktop;
   }
 
-  imageSrc = `${name}${once ? '' : endingImgName}.webp`;
+  imageUrl = `${name}${isOnce ? '' : endingImgName}.webp`;
 
   const classes = classNames(styles.picture, parentClass);
 
   return (
     <LazyLoadImage
       className={classes}
-      src={imageSrc}
+      src={imageUrl}
       alt={alt}
       width={imageWidth}
       height={imageHeight}
