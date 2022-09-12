@@ -18,7 +18,7 @@ export type TAling = 'left' | 'right' | 'none' | 'inherit';
 
 export interface IPictureProps {
   name: string;
-  alt?: string;
+  alt: string;
   isOnce?: boolean;
   size?: TImageSize;
   sizeMobile?: TImageSize;
@@ -63,6 +63,8 @@ export function Picture({
   const isTablet = useMediaQuery({ query: `(min-width: ${bpMinWidthTablet}) and (max-width: ${bpMaxWidthTablet})` });
   const isLaptop = useMediaQuery({ query: `(min-width: ${bpMinWidthLaptop}) and (max-width: ${bpMaxWidthLaptop})` });
   const isDesktop = useMediaQuery({ query: `(min-width: ${bpMinWidthDesktop})` });
+  const isOnceMedia = (isMobile ? 1 : 0) + (isTablet ? 1 : 0) + (isLaptop ? 1 : 0) + (isDesktop ? 1 : 0) === 1;
+  if (!isOnceMedia) return null;
 
   let imageUrl: string = '';
   let endingImgName: string = '';
