@@ -8,8 +8,8 @@ export const cleanPages: TPages = {
   sanctitys: false,
   clergy: false,
   schedule: false,
-  life: false,
-  adverts: false,
+  lifenews: false,
+  lifeadverts: false,
   contacts: false,
 };
 

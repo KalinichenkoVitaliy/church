@@ -8,12 +8,12 @@ import { pagesSetActive } from '../../../store/pagesSlice';
 
 import { EColor, Text } from '../../../shared/Text';
 import { BreakInterAssides, DoLinkTo } from '../../../utils/samples';
-import { Adverts } from '../../Adverts';
+import { LifeAdverts } from '../../LifeAdverts';
 import { Break } from '../../../shared/Break';
 
 export function AssideAdverts() {
   const dispatch = useDispatch();
-  const isAdverts = useSelector<TRootState, boolean>((state) => state.pagesState.pages.adverts);
+  const isAdverts = useSelector<TRootState, boolean>((state) => state.pagesState.pages.lifeadverts);
   const items = useSelector<TRootState, TNotice[]>((state) => state.noticesState.notices.shortActiveAdverts);
 
   return isAdverts ? null : (
@@ -28,13 +28,13 @@ export function AssideAdverts() {
         >
           Свежие объявления:
         </Text>
-        <Adverts isActiveAdverts isAsside assideNumber={3} />
+        <LifeAdverts isActiveAdverts isAsside assideNumber={3} />
         {items?.length > 0 && <Break step={6} top />}
         <DoLinkTo
-          goTo='/adverts'
+          goTo='/lifeadverts'
           title='Все объявления для прихожан и посетителей'
           parentClass={styles.assideAdvertsLink}
-          onClick={() => dispatch(pagesSetActive({ namePage: 'adverts' }))}
+          onClick={() => dispatch(pagesSetActive({ namePage: 'lifeadverts' }))}
         >
           {`Все объявления >>`}
         </DoLinkTo>

@@ -82,6 +82,8 @@ export function readNotices({
   onReady,
 }: IReadNoticesProps) {
   const fileFoldersNotice = `/${typeNotice}/${typeNotice}.json`;
+  // console.log('fileFoldersNotice:', fileFoldersNotice);
+
   let notices: string[] = [];
   let noticesLength: number = 0;
   const accumNotices: TNotice[] = [];
@@ -121,6 +123,9 @@ export function readNotices({
       .get(fileFoldersNotice, { baseURL: window.location.origin })
       .then((res) => {
         if (res.data.length > 0) {
+          // console.log('res:', res);
+          // console.log('res.data:', res.data);
+
           notices = res.data
             .filter((nameFolder: string) => {
               let isOk = isFolder(nameFolder);
@@ -137,6 +142,7 @@ export function readNotices({
         } else onReady([]);
       })
       .catch((err) => {
+        console.log(`Ошибка получения данных из файла "${err.config.url}":`, err);
         onReady([]);
       });
   };

@@ -8,7 +8,7 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion';
 
-import styles from './adverts.module.scss';
+import styles from './lifeAdverts.module.scss';
 
 import { TNotice, TRootState } from '../../types';
 import {
@@ -31,7 +31,7 @@ interface IActiveAdvertsProps {
   assideNumber?: number;
 }
 
-export function Adverts({ isActiveAdverts, isAsside, assideNumber }: IActiveAdvertsProps) {
+export function LifeAdverts({ isActiveAdverts, isAsside, assideNumber }: IActiveAdvertsProps) {
   const dispatch = useDispatch();
   const isReaded = useSelector<TRootState, boolean>((state) =>
     isAsside
@@ -84,7 +84,7 @@ export function Adverts({ isActiveAdverts, isAsside, assideNumber }: IActiveAdve
   ) : !items?.length ? (
     <>{isAsside ? null : <TextIndentP>{textOnEmptyList}</TextIndentP>}</>
   ) : (
-    <div className={styles.adverts}>
+    <div className={styles.lifeAdverts}>
       <Accordion allowMultipleExpanded allowZeroExpanded className={styles.accordion}>
         {items.map((item) => (
           <AccordionItem key={item.uuid} className={styles.accordion__item}>

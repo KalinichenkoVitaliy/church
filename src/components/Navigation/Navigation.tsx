@@ -28,8 +28,8 @@ export function Navigation() {
   const classSanctitys = classNames(styles.animeLink, { [styles.activeLink]: pages.sanctitys });
   const classClergy = classNames(styles.animeLink, { [styles.activeLink]: pages.clergy });
   const classSchedule = classNames(styles.animeLink, { [styles.activeLink]: pages.schedule });
-  const classLife = classNames(styles.animeLink, { [styles.activeLink]: pages.life });
-  const classAdverts = classNames(styles.animeLink, { [styles.activeLink]: pages.adverts });
+  const classLifeNews = classNames(styles.animeLink, { [styles.activeLink]: pages.lifenews });
+  const classLifeAdverts = classNames(styles.animeLink, { [styles.activeLink]: pages.lifeadverts });
   const classContacts = classNames(styles.animeLink, { [styles.activeLink]: pages.contacts });
 
   return (
@@ -75,18 +75,18 @@ export function Navigation() {
         Расписание богослужений
       </DoLinkToUpper>
       <DoLinkToUpper
-        goTo='/life'
+        goTo='/lifenews'
         title='Подробнее о жизни прихода и его событиях'
-        parentClass={classLife}
-        onClick={() => handleClickOnLink('life')}
+        parentClass={classLifeNews}
+        onClick={() => handleClickOnLink('lifenews')}
       >
         Приходская жизнь
       </DoLinkToUpper>
       <DoLinkToUpper
-        goTo='/adverts'
+        goTo='/lifeadverts'
         title='Объявления для прихожан и посетителей'
-        parentClass={classAdverts}
-        onClick={() => handleClickOnLink('adverts')}
+        parentClass={classLifeAdverts}
+        onClick={() => handleClickOnLink('lifeadverts')}
       >
         Объявления
       </DoLinkToUpper>

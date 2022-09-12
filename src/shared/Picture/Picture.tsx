@@ -115,6 +115,7 @@ export function Picture({
   }
 
   imageSrc = `${name}${once ? '' : endingImgName}.webp`;
+  console.log('imageSrc:', imageSrc);
 
   const classes = classNames(styles.picture, parentClass);
 

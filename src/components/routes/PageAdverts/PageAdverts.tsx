@@ -4,7 +4,7 @@ import styles from './pageAdverts.module.scss';
 
 import { TextH2ACenter, TextH3, BreakAfterH2, BreakInterP } from '../../../utils/samples';
 
-import { Adverts } from '../../Adverts';
+import { LifeAdverts } from '../../LifeAdverts';
 
 const documentTitle = getComputedStyle(document.documentElement).getPropertyValue('--documentTitle');
 
@@ -23,11 +23,11 @@ export function PageAdverts() {
       <BreakAfterH2 />
       <TextH3>Действующие объявления:</TextH3>
       <BreakInterP />
-      <Adverts isActiveAdverts />
+      <LifeAdverts isActiveAdverts />
       <BreakAfterH2 />
       <TextH3>Архивные объявления:</TextH3>
       <BreakInterP />
-      <Adverts />
+      <LifeAdverts />
     </div>
   );
 }

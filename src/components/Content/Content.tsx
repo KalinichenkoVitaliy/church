@@ -65,7 +65,7 @@ export function Content() {
               }
             />
             <Route
-              path='/life'
+              path='/lifenews'
               element={
                 <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageLife />
@@ -73,7 +73,7 @@ export function Content() {
               }
             />
             <Route
-              path='/adverts'
+              path='/lifeadverts'
               element={
                 <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageAdverts />

@@ -43,7 +43,7 @@ export type TPages = {
   sanctitys: boolean;
   clergy: boolean;
   schedule: boolean;
-  life: boolean;
-  adverts: boolean;
+  lifenews: boolean;
+  lifeadverts: boolean;
   contacts: boolean;
 };
