@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import { TBloc, TNotice } from '../types';
 
@@ -81,9 +80,6 @@ export function readNotices({
   assideNumber = 3,
   onReady,
 }: IReadNoticesProps) {
-  const fileFoldersNotice = `/${typeNotice}/${typeNotice}.json`;
-  // console.log('fileFoldersNotice:', fileFoldersNotice);
-
   let notices: string[] = [];
   let noticesLength: number = 0;
   const accumNotices: TNotice[] = [];
@@ -100,49 +96,69 @@ export function readNotices({
   const readContentNotices = () => {
     let nameLastFileNotices = '';
     for (let i = 0; i < notices.length; i++) {
-      const nameFileNotice = `/${typeNotice}/${notices[i]}/${notices[i]}.json`;
-      if (i >= notices.length - 1) nameLastFileNotices = nameFileNotice;
-      axios
-        .get(nameFileNotice, { baseURL: window.location.origin })
+      const requestURLFileNotice = `${window.location.origin}/${typeNotice}/${notices[i]}/${notices[i]}.json`;
+      if (i >= notices.length - 1) nameLastFileNotices = requestURLFileNotice;
+      fetch(requestURLFileNotice, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      })
         // eslint-disable-next-line no-loop-func
         .then((res) => {
-          accumNotices.push(res.data);
-          if (res.config.url === nameLastFileNotices) saveSortedNotices();
+          if (res.status === 200) {
+            res.json().then((data) => {
+              accumNotices.push(data);
+              if (res.url === nameLastFileNotices) saveSortedNotices();
+            });
+          } else {
+            noticesLength--;
+            console.log(`Ошибка чтения данных из файла "${res.url}":`, res);
+            if (res.url === nameLastFileNotices) saveSortedNotices();
+          }
         })
-        // eslint-disable-next-line no-loop-func
         .catch((err) => {
-          noticesLength--;
-          console.log(`Ошибка получения данных из файла "${err.config.url}":`, err);
-          if (err.config.url === nameLastFileNotices) saveSortedNotices();
+          console.log(`Ошибка поиска файла "${requestURLFileNotice}":`, err);
         });
     }
   };
 
   const getFoldersNotices = () => {
-    axios
-      .get(fileFoldersNotice, { baseURL: window.location.origin })
+    const requestURL = `${window.location.origin}/${typeNotice}/list.json`;
+    fetch(requestURL, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    })
       .then((res) => {
-        if (res.data.length > 0) {
-          // console.log('res:', res);
-          // console.log('res.data:', res.data);
-
-          notices = res.data
-            .filter((nameFolder: string) => {
-              let isOk = isFolder(nameFolder);
-              if (isOk && typeNotice === ENotice.adverts) isOk = isOk && isActiveAdverts === isAdvertActive(nameFolder);
-              return isOk;
+        if (res.status === 200) {
+          res
+            .json()
+            .then((data) => {
+              if (data.length > 0) {
+                notices = data
+                  .filter((nameFolder: string) => {
+                    let isOk = isFolder(nameFolder);
+                    if (isOk && typeNotice === ENotice.adverts)
+                      isOk = isOk && isActiveAdverts === isAdvertActive(nameFolder);
+                    return isOk;
+                  })
+                  .sort((a: string, b: string) => descendingSort(a, b));
+                if (isAsside) notices = notices.slice(0, assideNumber);
+                if (notices.length) {
+                  noticesLength = notices.length;
+                  readContentNotices();
+                } else onReady([]);
+              } else onReady([]);
             })
-            .sort((a: string, b: string) => descendingSort(a, b));
-
-          if (isAsside) notices = notices.slice(0, assideNumber);
-          if (notices.length) {
-            noticesLength = notices.length;
-            readContentNotices();
-          } else onReady([]);
-        } else onReady([]);
+            .catch((err) => {
+              console.log(`Ошибка чтения данных из файла "${res.url}":`, res);
+              onReady([]);
+            });
+        } else {
+          console.log(`Ошибка чтения данных из файла "${res.url}":`, res);
+          onReady([]);
+        }
       })
       .catch((err) => {
-        console.log(`Ошибка получения данных из файла "${err.config.url}":`, err);
+        console.log(`Ошибка поиска файла "${requestURL}":`, err);
         onReady([]);
       });
   };
