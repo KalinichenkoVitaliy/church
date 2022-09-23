@@ -45,7 +45,7 @@ export function FormFeedback() {
         from_name: 'supppochta@gmail.com',
         to_name: 'xpam-fastov-ne@mail.ru',
         message: data,
-        reply_to: 'kalinichenkovv@mail.ru',
+        // reply_to: 'kalinichenkovv@mail.ru',
       },
       apiKeys.PUBLIC_KEY
     )

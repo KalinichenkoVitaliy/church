@@ -26,7 +26,7 @@ export function Navigation() {
   const classPrimary = classNames(styles.animeLink, { [styles.activeLink]: pages.primary });
   const classAbout = classNames(styles.animeLink, { [styles.activeLink]: pages.about });
   const classSanctitys = classNames(styles.animeLink, { [styles.activeLink]: pages.sanctitys });
-  const classClergy = classNames(styles.animeLink, { [styles.activeLink]: pages.clergy });
+  // const classClergy = classNames(styles.animeLink, { [styles.activeLink]: pages.clergy });
   const classSchedule = classNames(styles.animeLink, { [styles.activeLink]: pages.schedule });
   const classLifeNews = classNames(styles.animeLink, { [styles.activeLink]: pages.lifenews });
   const classLifeAdverts = classNames(styles.animeLink, { [styles.activeLink]: pages.lifeadverts });
@@ -58,14 +58,14 @@ export function Navigation() {
       >
         Святыни храма
       </DoLinkToUpper>
-      <DoLinkToUpper
+      {/* <DoLinkToUpper
         goTo='/clergy'
         title='Подробнее о духовенстве'
         parentClass={classClergy}
         onClick={() => handleClickOnLink('clergy')}
       >
         Духовенство
-      </DoLinkToUpper>
+      </DoLinkToUpper> */}
       <DoLinkToUpper
         goTo='/schedule'
         title='Подробнее о расписании богослужений'

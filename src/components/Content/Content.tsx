@@ -10,7 +10,7 @@ import { ScrollToTop } from '../../shared/ScrollToTop';
 const PagePrimary = React.lazy(() => import('../routes/PagePrimary/PagePrimary'));
 const PageAbout = React.lazy(() => import('../routes/PageAbout/PageAbout'));
 const PageSanctitys = React.lazy(() => import('../routes/PageSanctitys/PageSanctitys'));
-const PageClergy = React.lazy(() => import('../routes/PageClergy/PageClergy'));
+// const PageClergy = React.lazy(() => import('../routes/PageClergy/PageClergy'));
 const PageSchedule = React.lazy(() => import('../routes/PageSchedule/PageSchedule'));
 const PageLife = React.lazy(() => import('../routes/PageLife/PageLife'));
 const PageAdverts = React.lazy(() => import('../routes/PageAdverts/PageAdverts'));
@@ -48,14 +48,14 @@ export function Content() {
                 </React.Suspense>
               }
             />
-            <Route
+            {/* <Route
               path='/clergy'
               element={
                 <React.Suspense fallback={<h2>Идёт загрузка страницы ...</h2>}>
                   <PageClergy />
                 </React.Suspense>
               }
-            />
+            /> */}
             <Route
               path='/schedule'
               element={
